@@ -1,0 +1,24 @@
+//global
+@import "./global/reset";
+@import "./global/variables";
+@import "./global/design-system";
+@import "./global/general";
+@import "./global/typography";
+@import "./global/utilities";
+@import "./global/mixins";
+@import "./global/icons";
+//components
+@import "./components/buttons";
+@import "./components/form";
+@import "./components/underline";
+@import "./components/homepage/banner";
+
+//layout
+@import "./layout/header";
+@import "./layout/footer";
+//page
+@import "./pages/login";
+@import "./pages/homeAdmin";
+
+@import "./pages/aboutUs";
+
