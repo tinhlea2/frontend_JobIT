@@ -16,21 +16,21 @@ const Dashboard = () => {
       <CCol xs="12" className="mb-4">
         <CCard className="card-content">
           <CCardHeader style={{ fontSize: "x-large" }}>
-            SYSTEM MANAGEMENT
+            IT JOBS SYSTEM MANAGEMENT
           </CCardHeader>
           <CCardBody>
             <CJumbotron className="border">
-              <h1 className="display-3">IT JOBS</h1>
-              <hr className="my-2" />
+              {/* <h1 className="display-3">IT JOBS</h1> */}
+              {/* <hr className="my-2" /> */}
 
-              <p className="lead">
+              <p className="lead mb-3">
                 <b>User name: </b> {getAuth().userName}
               </p>
-              <hr className="my-2" />
+              {/* <hr className="my-2" /> */}
               <p className="lead">
                 <b>Role: </b> {role}
               </p>
-              <hr className="my-2" />
+              {/* <hr className="my-2" /> */}
             </CJumbotron>
           </CCardBody>
         </CCard>

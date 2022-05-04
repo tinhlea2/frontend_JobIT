@@ -11,7 +11,7 @@ const TheFooter = () => {
     (auth.role === "admin" || auth.role === "moderator") ? (
     <CFooter fixed={false}>
       <div>
-        <span className="ml-1">&copy; 2021 PATNT .</span>
+        <span className="ml-1">&copy; 2022 DACNPM</span>
       </div>
     </CFooter>
   ) : (
@@ -19,7 +19,7 @@ const TheFooter = () => {
       <div className="footer__inner">
         <div className="footer__inner__logo">
           <img src={logo} alt="" />
-          <p className="margin-t-s">© IT Jobs, Inc. 2021</p>
+          <p className="margin-t-s">© IT Jobs, Inc. 2022</p>
         </div>
         <div className="footer__inner__links">
           <div className="footer__inner__links__item">

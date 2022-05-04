@@ -5,10 +5,10 @@ import { Banner, Feedback, Members, WhyChooseUs } from "src/components/about";
 const AboutUs = () => {
   return (
     <>
-      <Banner />
-      <Feedback />
-      <WhyChooseUs />
       <Members />
+      {/* <Banner /> */}
+      <WhyChooseUs />
+      <Feedback />
     </>
   );
 };

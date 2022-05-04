@@ -18,7 +18,7 @@ const TheSidebar = () => {
   const show = useSelector((state) => state.setShowSidebar);
 
   return (
-    <CSidebar show={show.status}>
+    <CSidebar show={show.status} className="sidebar-container">
       <CSidebarNav>
         <CCreateElement
           items={navigation}

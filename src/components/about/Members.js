@@ -13,16 +13,21 @@ function Members() {
       <div className="about_member__inner ">
         <div className="about_member__inner__text">
           <div className="text__title">
-            <h2 className="h2">
-              Meet <span className="skyblue
-              ">our management team</span>{" "}
+            <h2 className="h2 text-center">
+              Meet{" "}
+              <span
+                className="skyblue
+              "
+              >
+                our team in this project
+              </span>{" "}
             </h2>
             <div className="members">
-              <Member name="Nhat minh" avt={nhatminh} />
-              <Member name="Thien nhu" avt={thienthu} />
-              <Member name="Lien huong" avt={lienhuong} />
-              <Member name="Trang" avt={trang} />
-              <Member name="Tinh" avt={tinh} />
+              <Member name="Minh Nhật" avt={nhatminh} />
+              <Member name="Thiên Như" avt={thienthu} />
+              <Member name="Liên Hương" avt={lienhuong} />
+              <Member name="HuyềnTrang" avt={trang} />
+              <Member name="Thị Tình" avt={tinh} />
             </div>
           </div>
         </div>
