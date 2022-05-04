@@ -94,13 +94,22 @@ const TheHeaderUser = () => {
         </CHeaderNav>
       ) : (
         <CHeaderNav className="px-3">
-          <Link to="/login">
-            <CButton
-              className="px-4 btn--primary"
-            >
+          <Link to="/login" style={{marginRight:"30px"}}>
+            
               Login
-            </CButton>
+           
           </Link>
+          <Link to="/register" style={{marginRight:"30px"}}>
+            
+              Register
+           
+          </Link>
+
+          <Link to="/register-company" style={{marginRight:"40px"}}>
+            
+          Register for recruitment
+         
+        </Link>
         </CHeaderNav>
       )}
     </CHeader>
