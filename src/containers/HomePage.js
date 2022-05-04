@@ -77,29 +77,39 @@ const HomePage = () => {
       }}
     >
       <CContainer>
-        <CRow style={{ justifyContent: "center" }}>
+        <CRow>
           <CCol md="6" className="mb-4">
             <CInputGroup className="input-prepend mt-4">
-              <CInputGroupPrepend>
+              {/* <CInputGroupPrepend>
                 <CInputGroupText>
                   <CIcon name="cil-magnifying-glass" />
                 </CInputGroupText>
-              </CInputGroupPrepend>
+              </CInputGroupPrepend> */}
               <CInput
                 size="16"
                 type="text"
-                placeholder="Keyword ( Skill, Company, Position ...)"
+                style={{
+                  borderTopLeftRadius: "20px",
+                  borderBottomLeftRadius: "20px",
+                }}
+                placeholder="Searching for skill, Company, Position"
                 name="search"
                 onChange={handleChange}
               />
               <CInputGroupAppend>
                 <CButton
-                  style={{ opacity: "1" }}
+                  style={{
+                    opacity: "1",
+                    display: "flex",
+                    alignItems: "center",
+                    borderTopRightRadius: "20px",
+                    borderBottomRightRadius: "20px",
+                  }}
                   className="btn--primary"
                   onClick={search}
                   disabled={!searchInput}
                 >
-                  Search
+                  <i class="cil-search mr-1"></i> Search
                 </CButton>
               </CInputGroupAppend>
             </CInputGroup>

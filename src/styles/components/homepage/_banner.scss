@@ -10,3 +10,20 @@
   }
   margin-bottom: 80px;
 }
+
+.job-container-item {
+  border: none;
+  border-radius: 20px;
+  padding: 20px;
+  background-color: white;
+  header {
+    border-bottom: none;
+  }
+  .job-title {
+    color: #ff8b00;
+    font-weight: 700;
+  }
+  .card-body {
+    padding-top: 0;
+  }
+}

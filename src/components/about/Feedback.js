@@ -55,12 +55,12 @@ function Feedback() {
     >
       <section className="feedback">
         <div className="ds-primary feedback__inner">
-          <div className="fb-img">
+          {/* <div className="fb-img">
             <img src={image} alt="" width="600px" />
-          </div>
-          <div className="feedback__text" style={{ width: "100%" }}>
+          </div> */}
+          <div className="feedback__text text-center" style={{ width: "100%" }}>
             <h2 className="h2">
-              We'd love <span className="skyblue">your feedback!</span>
+              Give us your <span className="skyblue">feedback!</span>
             </h2>
 
             <CForm id="feedback">
@@ -80,6 +80,12 @@ function Feedback() {
                     color="primary"
                     onClick={sendFeedback}
                     disabled={!content}
+                    style={{
+                      width: "10rem",
+                      height: "2.5rem",
+                      fontSize: "1.2rem",
+                      borderRadius: "20px",
+                    }}
                   >
                     Send
                   </CButton>

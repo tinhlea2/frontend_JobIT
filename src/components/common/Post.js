@@ -69,6 +69,9 @@ const StyledPost = styled.section`
   .job-title {
     font-size: 20px;
   }
+  .header {
+    order-bottom: 0;
+  }
 `;
 
 function Post({
@@ -102,22 +105,17 @@ function Post({
     //   }}
     // >
     <StyledPost>
-      <CCard style={{ borderLeft: "3px solid #f25340" , width: "500px"}} className="card">
-        <CCardHeader>
-          <span className="job-title ellipsis-text text-truncate">
-            {" "}
-            {title}
-          </span>
-          {isApplied && (
-            <div className="card-header-actions">
-              <span className=" notify float-right">
-                {" "}
-                <CIcon name="cil-check" className="mr-2" />
-                You applied this job!
-              </span>
-            </div>
-          )}
-        </CCardHeader>
+      <CCard style={{ width: "500px" }} className="card job-container-item">
+        <h2 className="job-title ellipsis-text text-truncate mb-3">{title}</h2>
+        {isApplied && (
+          <div className="card-header-actions">
+            <span className=" notify float-right">
+              {" "}
+              <CIcon name="cil-check" className="mr-2" />
+              You applied this job!
+            </span>
+          </div>
+        )}
         <CCardBody className="flex space-between">
           <div className="image">
             {" "}
@@ -131,36 +129,45 @@ function Post({
           <div className="info">
             <div className="flex space-between align-item">
               <h4 className="text--primary">{compName}</h4>
-              <p>
-                <i className="cil-location-pin"></i>
-                {address}
-              </p>
             </div>
-
             <p>
-              <i className="cil-money"></i>
-              {getAuth().token ? (
-                " " + salary
-              ) : (
-                <a href="#/login" style={{ color: "#9c9595" }}>
-                  {" "}
-                  Login to view
-                </a>
-              )}
+              <i className="cil-location-pin"></i>
+              {address}
             </p>
             <p className="ellipsis-text  text-truncate">
               <i className="cil-code"></i>
               {" " + skill}
             </p>
-
-            <div className="flex space-between card--footer">
+            <p className="flex items-center">
+              <i className="cil-money mr-1"></i>
+              {getAuth().token ? (
+                " " + salary
+              ) : (
+                <a href="#/login" style={{ color: "#9c9595" }}>
+                  {" "}
+                  Login to view salary
+                </a>
+              )}
+            </p>
+            <p className="flex items-center">
+              <i className="cil-history mr-1"></i>
+              {" " + endTime}
+            </p>
+            <div
+              className="flex space-between card--footer"
+              style={{ justifyContent: "flex-end" }}
+            >
               <CLink onClick={() => setOpen(!isOpen)}>
-                <span className="btn--secondary">See More</span>
+                <span
+                  className="btn--secondary"
+                  style={{
+                    backgroundColor: "#4da6ff",
+                    color: "white",
+                  }}
+                >
+                  See More
+                </span>
               </CLink>
-              <p>
-                <i className="cil-history"></i>
-                {" " + endTime}
-              </p>
             </div>
           </div>
           <CModal

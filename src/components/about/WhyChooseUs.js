@@ -8,7 +8,7 @@ function WhyChooseUs() {
     <section className="why-chooseus">
       <div className="why-chooseus__inner">
         <div className="text__title">
-          <h2 className="h2">
+          <h2 className="h2 text-center">
             Why <span className="skyblue">choose us?</span>
           </h2>
         </div>
