@@ -5,12 +5,13 @@ import defaultImage from "../../assets/images/default_image.png";
 
 const StyledComp = styled.section`
   .card {
-    width: 400px;
-    margin: 10px;
+    width: 450px;
+    margin: 40px;
     text-align: center;
     align-items: center;
-    border-left:4px solid #d9d2c5;
-    border-bottom:2px solid #d9d2c5;
+    border : none;
+    border-radius: 20px;
+   
   }
   .center-comp {
     align-items: center;

@@ -29,7 +29,7 @@ const TheLayout = (Component) => (props) => {
     <div className="c-app c-default-layout">
       <div className="c-wrapper">
         <TheHeaderUser />
-        <div className="c-body" style={{ backgroundColor: "#f7f7f7" }}>
+        <div className="c-body" style={{ backgroundColor: "#f5f5f5" }}>
           <main className="c-main" style={{ paddingTop: "0" }}>
             <CContainer fluid>
               <CFade>
