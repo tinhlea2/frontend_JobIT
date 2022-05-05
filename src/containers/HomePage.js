@@ -77,7 +77,7 @@ const HomePage = () => {
       }}
     >
       <CContainer>
-        <CRow>
+        <CRow style={{ justifyContent: "center" }}>
           <CCol md="6" className="mb-4">
             <CInputGroup className="input-prepend mt-4">
               {/* <CInputGroupPrepend>
@@ -92,7 +92,7 @@ const HomePage = () => {
                   borderTopLeftRadius: "20px",
                   borderBottomLeftRadius: "20px",
                 }}
-                placeholder="Searching for skill, Company, Position"
+                placeholder="Searching for Skill, Company, Position"
                 name="search"
                 onChange={handleChange}
               />

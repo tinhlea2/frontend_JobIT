@@ -106,7 +106,7 @@ const Login = () => {
                     <CForm onSubmit={handleLogin}>
                       <h1 style={{ fontSize: "50px", textAlign: "center" }}>Login</h1>
                       <br />
-                      <p className="text-muted">Sign In to your account</p>
+                      <p className="text-muted">Sign in to your account</p>
                       <CInputGroup className="mb-3">
                         <CInputGroupPrepend>
                           <CInputGroupText>
