@@ -133,7 +133,7 @@ const PostComp = () => {
     >
       <CRow>
         <CModal show={isOpen} onClose={() => setOpen(!isOpen)} color="success">
-          <CModalHeader closeButton>
+          <CModalHeader closeButton >
             <CModalTitle>NEW POST</CModalTitle>
           </CModalHeader>
           <CModalBody>

@@ -175,7 +175,7 @@ function Post({
             onClose={() => setOpen(!isOpen)}
             color="success"
           >
-            <CModalHeader closeButton>
+            <CModalHeader closeButton style={{backgroundColor: "#4da6ff"}}>
               <CModalTitle>{title}</CModalTitle>
             </CModalHeader>
             <CModalBody>
