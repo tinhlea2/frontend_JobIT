@@ -176,11 +176,7 @@ function Post({
             //color="success"      
 
           >
-            <CModalHeader closeButton style={{
-                    backgroundColor: "#4da6ff",
-                    color: "white"
-                  }}>
-              
+            <CModalHeader closeButton style={{backgroundColor: "#4da6ff"}}>
               <CModalTitle>{title}</CModalTitle>
               
             </CModalHeader>
