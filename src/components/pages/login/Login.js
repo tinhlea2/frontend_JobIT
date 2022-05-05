@@ -160,7 +160,21 @@ const Login = () => {
                           </Link>
                         </CCol>
                       </CRow>
-                      
+                      <CRow style={{marginTop:"10px"}}>
+                        <Link to="/register" style={{marginLeft:"110px", color: "#4da6ff"}}>
+            
+                          Register
+
+                        </Link>
+
+                          <p style={{marginLeft:"10px"}}>or</p>
+
+                        <Link to="/register-company" style={{marginLeft:"20px",  color: "#4da6ff"}}>
+
+                          Register for recruitment
+
+                        </Link>
+                      </CRow>
                     </CForm>
                     
                   </CCardBody>
