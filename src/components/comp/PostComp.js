@@ -162,7 +162,7 @@ const PostComp = () => {
               </CFormGroup>
               <CFormGroup row>
                 <CCol md="3">
-                  <CLabel htmlFor="text-input">Skills</CLabel>
+                  <CLabel htmlFor="text-input">Languages/Skills</CLabel>
                 </CCol>
                 <CCol xs="12" md="9">
                   <MultiSelect
@@ -209,7 +209,7 @@ const PostComp = () => {
               </CFormGroup>
               <CFormGroup row>
                 <CCol md="3">
-                  <CLabel htmlFor="date-input">End time</CLabel>
+                  <CLabel htmlFor="date-input">Deadline</CLabel>
                 </CCol>
                 <CCol xs="12" md="9">
                   <CInput
@@ -223,14 +223,14 @@ const PostComp = () => {
                   />
                 </CCol>
                 <CInvalidFeedback className="help-block">
-                  Choose end time
+                  Choose deadline
                 </CInvalidFeedback>
               </CFormGroup>
 
               <CFormGroup row>
                 <CCol md="3">
                   <CLabel htmlFor="textarea-input" onChange={handleChange}>
-                    Description
+                    Descriptions
                   </CLabel>
                 </CCol>
                 <CCol xs="12" md="9">
