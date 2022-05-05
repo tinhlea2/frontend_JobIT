@@ -6,7 +6,7 @@
     "name": "PATNT"
   },
   "homepage": ".",
-  "copyright": "Copyright 2021 PATNT",
+  "copyright": "Copyright 2021 DACNPM",
   "license": "MIT",
   "private": true,
   "dependencies": {

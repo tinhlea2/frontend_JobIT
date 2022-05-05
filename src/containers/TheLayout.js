@@ -13,7 +13,7 @@ const TheLayout = (Component) => (props) => {
       <TheSidebar />
       <div className="c-wrapper">
         <TheHeader />
-        <div className="c-body">
+        <div className="c-body" style={{ backgroundColor: "#f7f7f7" }}>
           <main className="c-main" style={{ paddingTop: "0" }}>
             <CContainer fluid>
               <CFade>
@@ -29,8 +29,8 @@ const TheLayout = (Component) => (props) => {
     <div className="c-app c-default-layout">
       <div className="c-wrapper">
         <TheHeaderUser />
-        <div className="c-body">
-          <main className="c-main"  style={{ paddingTop: "0" }}>
+        <div className="c-body" style={{ backgroundColor: "#f5f5f5" }}>
+          <main className="c-main" style={{ paddingTop: "0" }}>
             <CContainer fluid>
               <CFade>
                 <Component {...props} />

@@ -99,12 +99,12 @@ const Login = () => {
       <div className="c-app c-default-layout flex-row align-items-center">
         <CContainer>
           <CRow className="justify-content-center">
-            <CCol md="8">
-              <CCardGroup>
-                <CCard className="p-4">
+            <CCol md="6" >
+              <CCardGroup >
+                <CCard className="p-4" style={{borderRadius: "10px", borderStyle: "outset", borderWidth: "5px"}}>
                   <CCardBody>
                     <CForm onSubmit={handleLogin}>
-                      <h1 style={{ fontSize: "50px" }}>Login</h1>
+                      <h1 style={{ fontSize: "50px", textAlign: "center" }}>Login</h1>
                       <br />
                       <p className="text-muted">Sign In to your account</p>
                       <CInputGroup className="mb-3">
@@ -143,9 +143,9 @@ const Login = () => {
                           />
                       </CInputGroup>
                       <CRow>
-                        <CCol xs="6">
+                        <CCol xs="5">
                           <CButton
-                            className="px-4 btn--primary"
+                            className="px-4 btn--primary "
                             onClick={handleLogin}
                             disabled={!form.email || !form.password}
                           >
@@ -160,40 +160,26 @@ const Login = () => {
                           </Link>
                         </CCol>
                       </CRow>
-                    </CForm>
-                  </CCardBody>
-                </CCard>
-                <CCard
-                  className="text-white py-5 d-md-down-none"
-                  style={{ width: "44%", background: "#1C1D26" }}
-                >
-                  <CCardBody className="text-center mt-4">
-                    <div>
-                      <p style={{ paddingBottom: "12px" }}>
-                        Sign up now to access your account on ITJobs for
-                        applying faster!
-                      </p>
-                      <Link to="/register">
-                        <CButton
-                          className="mt-2 mb-3 btn--primary"
-                          active
-                          tabIndex={-1}
-                        >
-                          Register Now!
-                        </CButton>
-                      </Link>
-                    </div>
-                    <div>
-                      <span>______________or______________</span>
+                      <CRow style={{marginTop:"10px"}}>
+                        <Link to="/register" style={{marginLeft:"110px", color: "#4da6ff"}}>
+            
+                          Register
 
-                      <Link to="/register-company">
-                        <p className="text--primary page--paddingTop">
-                          Sign up for recruitment!
-                        </p>
-                      </Link>
-                    </div>
+                        </Link>
+
+                          <p style={{marginLeft:"10px"}}>or</p>
+
+                        <Link to="/register-company" style={{marginLeft:"20px",  color: "#4da6ff"}}>
+
+                          Register for recruitment
+
+                        </Link>
+                      </CRow>
+                    </CForm>
+                    
                   </CCardBody>
                 </CCard>
+                
               </CCardGroup>
             </CCol>
           </CRow>

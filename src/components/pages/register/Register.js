@@ -87,9 +87,9 @@ const Register = () => {
       <div className="c-app c-default-layout flex-row align-items-center">
         <CContainer>
           <CRow className="justify-content-center">
-            <CCol md="5">
+            <CCol md="5" >
               <CCard className="mx-4">
-                <CCardBody className="p-4">
+                <CCardBody className="p-4" style={{borderRadius: "10px", borderStyle: "outset", borderWidth: "5px"}}>
                   <CForm>
                     <h1 style={{ fontSize: "40px" }}>Register</h1>
                     <br />
@@ -168,6 +168,7 @@ const Register = () => {
                       </span>
                     </CInputGroup>
                     <CButton
+                      style={{marginBottom:"20px"}}
                       className="btn--primary"
                       block
                       onClick={handleRegister}
@@ -181,8 +182,6 @@ const Register = () => {
                       Create Account
                     </CButton>
                   </CForm>
-                </CCardBody>
-                <CCardFooter className="p-4">
                   <CRow>
                     <CCol xs="12" sm="6">
                       <CButton className="btn-facebook mb-1" block>
@@ -211,7 +210,10 @@ const Register = () => {
                       </p>
                     </CCol>
                   </CRow>
-                </CCardFooter>
+                </CCardBody>
+                {/* <CCardFooter className="p-4" style={{borderRadius: "10px", borderStyle: "outset", borderWidth: "5px"}}>
+                
+                </CCardFooter> */}
               </CCard>
             </CCol>
           </CRow>
