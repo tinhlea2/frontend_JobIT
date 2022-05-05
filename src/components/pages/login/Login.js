@@ -145,6 +145,7 @@ const Login = () => {
                       <CRow>
                         <CCol xs="5">
                           <CButton
+                            style={{marginLeft:"80px"}}
                             className="px-4 btn--primary "
                             onClick={handleLogin}
                             disabled={!form.email || !form.password}
