@@ -30,7 +30,7 @@ import { useSelector } from "react-redux";
 const StyledPost = styled.section`
   .label {
     font-weight: 800;
-    color: #2eb85c;
+    color: #4da6ff;
     font-size: 15px;
   }
 
@@ -173,17 +173,23 @@ function Post({
           <CModal
             show={isOpen}
             onClose={() => setOpen(!isOpen)}
-            color="success"
+            //color="success"      
+
           >
-            <CModalHeader closeButton>
+            <CModalHeader closeButton style={{
+                    backgroundColor: "#4da6ff",
+                    color: "white"
+                  }}>
+              
               <CModalTitle>{title}</CModalTitle>
+              
             </CModalHeader>
             <CModalBody>
               <CForm action="" method="post" className="form-horizontal">
                 <CFormGroup row>
                   <CCol md="3">
                     <CLabel className="label">
-                      <i className="cil-people"></i> Comp's Name
+                      <i className="cil-people"></i> Company
                     </CLabel>
                   </CCol>
                   <CCol xs="12" md="9">
@@ -194,7 +200,7 @@ function Post({
                 <CFormGroup row>
                   <CCol md="3">
                     <CLabel className="label">
-                      <i className="cil-code"></i> Skills
+                      <i className="cil-code"></i> Languages /Skills
                     </CLabel>
                   </CCol>
                   <CCol xs="12" md="9">
@@ -227,7 +233,7 @@ function Post({
                 <CFormGroup row>
                   <CCol md="3">
                     <CLabel className="label">
-                      <i className="cil-clock"></i> End Time
+                      <i className="cil-clock"></i> Deadline
                     </CLabel>
                   </CCol>
                   <CCol xs="12" md="9">
@@ -238,7 +244,7 @@ function Post({
                 <CFormGroup row>
                   <CCol md="3">
                     <CLabel className="label">
-                      <i className="cil-description"></i> Description
+                      <i className="cil-description"></i> Descriptions
                     </CLabel>
                   </CCol>
                   <CCol xs="12" md="9">
@@ -275,6 +281,11 @@ function Post({
                     }
                   }
                 }}
+                style={{
+                  backgroundColor: "#4da6ff",
+                  color: "white"
+                }}
+
               >
                 Apply Now
               </CButton>{" "}
