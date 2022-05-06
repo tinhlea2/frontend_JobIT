@@ -148,28 +148,29 @@ const Login = () => {
                             className="px-4 btn--primary "
                             onClick={handleLogin}
                             disabled={!form.email || !form.password}
+                            style={{marginLeft:"150px"}}
                           >
                             Login
                           </CButton>
                         </CCol>
                         <CCol xs="6" className="text-right">
                           <Link to="/forgot-password">
-                            <CButton className="px-0 text--primary">
+                            <CButton className="px-0 text--primary" style={{marginRight:"100px"}}>
                               Forgot password?
                             </CButton>
                           </Link>
                         </CCol>
                       </CRow>
                       <CRow style={{marginTop:"10px"}}>
-                        <Link to="/register" style={{marginLeft:"110px", color: "#4da6ff"}}>
+                        <Link to="/register" style={{marginLeft:"150px", color: "#4da6ff"}}>
             
                           Register
 
                         </Link>
 
-                          <p style={{marginLeft:"10px"}}>or</p>
+                          <p style={{marginLeft:"10px", marginRight:"10px"}}>or</p>
 
-                        <Link to="/register-company" style={{marginLeft:"20px",  color: "#4da6ff"}}>
+                        <Link to="/register-company" style={{color: "#4da6ff"}}>
 
                           Register for recruitment
 
