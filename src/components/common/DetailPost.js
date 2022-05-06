@@ -187,7 +187,7 @@ function DetailPost() {
                       </CFormGroup>
                       <CFormGroup row>
                         <CCol>
-                          <CLabel className="label">End Time</CLabel>
+                          <CLabel className="label">Deadline</CLabel>
                         </CCol>
                       </CFormGroup>
                       <hr></hr>
