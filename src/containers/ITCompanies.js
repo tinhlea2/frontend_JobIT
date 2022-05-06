@@ -79,7 +79,7 @@ const ITCompanies = () => {
       }}
     >
       <CContainer>
-        <CRow style={{ justifyContent: "flex-start" }}>
+        <CRow style={{ justifyContent: "center" }}>
           <CCol md="6" className="mb-4">
             <CInputGroup className="input-prepend mt-4">
               {/* <CInputGroupPrepend>
