@@ -232,9 +232,10 @@ const Profile = () => {
         zIndex: "9999",
       }}
     >
-      <StyledProfile>
+      <StyledProfile >
         <CRow className="mt-4">
-          <CCol xs="12" className="mb-4" md="3">
+          <CCol  xs="12"  className="mb-4" style ={{ textAlign: "center", paddingLeft: "20px", maxWidth: "30%", }}>
+          {/* <CCol xs="12" className="mb-4" md="3"> */}
             <CCard>
               <CCardBody style={{ display: "flex", flexDirection: "column" }}>
                 <div className="avatar-wrapper">
@@ -254,7 +255,8 @@ const Profile = () => {
               </CCardBody>
             </CCard>
           </CCol>
-          <CCol xs="12" className="mb-4" md="5">
+          <CCol xs="12" className="mb-4" md="7">
+
             <CCard>
               <CCardBody >
                 <CForm
@@ -327,20 +329,41 @@ const Profile = () => {
                       />
                     </CCol>
                   </CFormGroup>
-                  <CFormGroup style={{ alignItems: "center", textAlign: "center" }}>
-                    <CButton 
-                      color="success"
-                      onClick={saveChanges}
-                      disabled={!name || !phone || !address}
-                    >
-                      Save
-                    </CButton>
-                  </CFormGroup>
+                 
+                  <CButton
+                    color="success"
+                    onClick={saveChanges}
+                    disabled={!name || !phone || !address}
+                    
+                  >
+                    Save changes
+                  </CButton>
                 </CForm>
               </CCardBody>
             </CCard>
           </CCol>
-          <CCol xs="12" className="mb-4" md="4">
+          <CCol  xs="12"  className="mb-4" style ={{ textAlign: "center", paddingLeft: "20px", maxWidth: "30%",}}>
+          {/* <CCol xs="12" className="mb-4" md="3"> */}
+            <CCard style= {{ display: "none" }}>
+              <CCardBody style={{ display: "flex", flexDirection: "column" }}>
+                <div className="avatar-wrapper">
+                  <img className="profile-pic" src={avatar} alt="avatar" />
+                </div>
+
+                <input
+                  className="file-upload"
+                  type="file"
+                  onChange={handleFile}
+                  style={{ display: "none" }}
+                  ref={hiddenFileInput}
+                />
+                <CButton className="btn--secondary" onClick={handleClick}>
+                  Choose avatar
+                </CButton>
+              </CCardBody>
+            </CCard>
+          </CCol>
+          <CCol xs="12" className="mb-4" md="7">
             <CCard>
               <CCardBody>
                 <CForm
