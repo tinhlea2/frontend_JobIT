@@ -399,12 +399,15 @@ const CV = () => {
                     invitation from employers!
                   </div>
                   <br></br>
-                  <CButton
-                    color="success"
+                  <CButton 
+                    style={{
+                      backgroundColor: "#4da6ff",
+                      color: "white"
+                    }}
                     disabled={loading}
                     onClick={() => setOpen(!isOpen)}
                   >
-                    Create CV Now !
+                    Create Now !
                   </CButton>{" "}
                 </CCardBody>
               </CCard>
@@ -413,8 +416,8 @@ const CV = () => {
         )}
 
         <CModal show={isOpen} onClose={() => setOpen(!isOpen)} color="primary">
-          <CModalHeader closeButton>
-            <CModalTitle>Your CV</CModalTitle>
+          <CModalHeader closeButton style={{backgroundColor: "#4da6ff" }} >
+            <CModalTitle >Your CV</CModalTitle>
           </CModalHeader>
           <CModalBody>
             <CForm
@@ -496,7 +499,7 @@ const CV = () => {
               <CRow xs="12" md="12" className="mb-2">
                 <CCol md="4" style={{ textAlign: "center" }}>
                   <CButton
-                    style={{ textAlign: "center" }}
+                    style={{ textAlign: "center", backgroundColor: "#4da6ff"}}
                     color="primary"
                     onClick={handleClick}
                   >
@@ -574,7 +577,7 @@ const CV = () => {
             </CForm>
           </CModalBody>
           <CModalFooter>
-            <CButton color="success" onClick={handleSubmit}>
+            <CButton color="success" onClick={handleSubmit} style={{backgroundColor: "#4da6ff"}}>
               Create
             </CButton>{" "}
             <CButton
