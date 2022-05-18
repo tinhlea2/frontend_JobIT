@@ -59,15 +59,15 @@ const Form = ({ handleSubmit }) => {
     <section onSubmit={handleSubmitForm} className="login">
       <div className="login__inner">
         <ReForm className="radius-l login__inner__form">
-          <div className="login__inner__form__text">
-            <p>Login to your account</p>
+          <div className="login__inner__form__text" >
+            <p style={{color: "black", fontSize: "50px"}}>Login</p>
             <div className="error">{errorLogin}</div>
           </div>
 
           <FormBox
             propsInput={{
               name: "userName",
-              placeholder: "username",
+              placeholder: "Username",
               onChange: handleChange,
               onFocus: handleFocus,
               value: form.userName,
@@ -81,7 +81,7 @@ const Form = ({ handleSubmit }) => {
               <input 
                 type="password" 
                 name="password" 
-                placeholder="password" 
+                placeholder="Password" 
                 id="password"
                 onChange={ handleChange}  
                 onFocus = {handleFocus}
@@ -109,11 +109,11 @@ const Form = ({ handleSubmit }) => {
             /> */}
         
           <div className="flex space-between align-item">
-          <button className="button button--secondary">
+          <button className="button button-secondary" style={{color: "white", marginLeft:"100px"}}>
             Login
           </button>
             <div>
-              <Link to="/forgot-password" className="primary">
+              <Link to="/forgot-password" className="primary" style={{marginRight:"100px"}}>
                 Forgot Password?
               </Link>
             </div>

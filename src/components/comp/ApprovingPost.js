@@ -231,7 +231,7 @@ const ApprovingPost = () => {
                   </CFormGroup>
                   <CFormGroup row>
                     <CCol md="3">
-                      <CLabel htmlFor="date-input">End time</CLabel>
+                      <CLabel htmlFor="date-input">Deadline</CLabel>
                     </CCol>
                     <CCol xs="12" md="9">
                       <CInput
@@ -243,7 +243,7 @@ const ApprovingPost = () => {
                         min={min}
                       />
                       <CInvalidFeedback className="help-block">
-                        Choose end time
+                        Choose deadline
                       </CInvalidFeedback>
                     </CCol>
                   </CFormGroup>
