@@ -149,14 +149,14 @@ const Login = () => {
                             className="px-4 btn--primary "
                             onClick={handleLogin}
                             disabled={!form.email || !form.password}
-                            style={{marginLeft:"150px"}}
+                          
                           >
                             Login
                           </CButton>
                         </CCol>
                         <CCol xs="6" className="text-right">
                           <Link to="/forgot-password">
-                            <CButton className="px-0 text--primary" style={{marginRight:"100px"}}>
+                            <CButton className="px-0 text--primary" style={{marginRight:"50px"}}>
                               Forgot password?
                             </CButton>
                           </Link>
