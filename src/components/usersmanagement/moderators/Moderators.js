@@ -130,7 +130,7 @@ const Moderators = () => {
               <CCardHeader>
                 MODERATORS
                 <CButton
-                  style={{ float: "right" }}
+                  style={{ float: "right", backgroundColor: "#4da6ff", borderColor: "#4da6ff"}}
                   color="primary"
                   className="mr-1 right-btn"
                   onClick={() => setPrimary(!primary)}
@@ -260,6 +260,7 @@ const Moderators = () => {
               </CCardHeader>
               <CCardBody>
                 <CDataTable
+                 
                   items={moderators}
                   fields={[
                     { key: "_id", _classes: "font-weight-bold" },
