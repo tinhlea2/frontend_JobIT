@@ -15,11 +15,11 @@ const Dashboard = () => {
     <CRow>
       <CCol xs="12" className="mb-4">
         <CCard className="card-content">
-          <CCardHeader style={{ fontSize: "x-large" }}>
+          <CCardHeader style={{ fontSize: "x-large", color: "#3c78d8" }}>
             IT JOBS SYSTEM MANAGEMENT
           </CCardHeader>
           <CCardBody>
-            <CJumbotron className="border">
+            <CJumbotron className="border" style={{ background: "#99ddff" }}>
               {/* <h1 className="display-3">IT JOBS</h1> */}
               {/* <hr className="my-2" /> */}
 

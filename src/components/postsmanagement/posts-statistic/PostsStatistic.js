@@ -209,7 +209,7 @@ const PostsStatistic = () => {
     >
       <CCardBody className="statistic">
         <div style={{ height: "180px" }}>
-          <h1 className="title">Posts Chart</h1>
+          <h1 className="title">Post Chart</h1>
           <CRow>
             <CCol xs="4">
               <CFormGroup className="year-select">
@@ -244,7 +244,7 @@ const PostsStatistic = () => {
           </div>
         )}
         <div style={{ height: "180px" }}>
-          <h1 className="title">Posts - Skills Chart </h1>
+          <h1 className="title">Skill Chart </h1>
 
           <CRow>
             <CCol xs="6">
