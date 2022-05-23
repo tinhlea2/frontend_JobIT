@@ -239,8 +239,8 @@ const PostsStatistic = () => {
         ) : (
           <div style={{ height: "250px" }}>
             {" "}
-            <img src={nodata} alt="" width="100px" />
-            <h1 style={{ textAlign: "center", fontSize: "30px" }}>No data </h1>
+            {/* <img src={nodata} alt="" width="100px" /> */}
+            <h1 style={{ textAlign: "center", fontSize: "30px" }}>No data matching! </h1>
           </div>
         )}
         <div style={{ height: "180px" }}>
@@ -310,8 +310,8 @@ const PostsStatistic = () => {
         ) : (
           <div style={{ height: "250px" }}>
             {" "}
-            <img src={nodata} alt="" width="100px" />
-            <h1 style={{ textAlign: "center", fontSize: "30px" }}>No data </h1>
+            {/* <img src={nodata} alt="" width="100px" /> */}
+            <h1 style={{ textAlign: "center", fontSize: "30px" }}>No data matching! </h1>
           </div>
         )}
       </CCardBody>
