@@ -39,6 +39,7 @@ const TheHeaderDropdown = () => {
           Profile
         </Link>
 
+<<<<<<< HEAD
         {getAuth().role === "iter" ? (
           <>
             <Link to="/applied-jobs" className="dropdown-item">
@@ -50,6 +51,9 @@ const TheHeaderDropdown = () => {
           <></>
         )}
 
+=======
+        <CDropdownItem divider />
+>>>>>>> 766310a (Implement Manage Posts Function and Manage Feedback for Admin)
         {getAuth().role === "admin" || getAuth().role === "moderator" ? (
           <CDropdownItem
             onClick={() => {

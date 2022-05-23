@@ -77,7 +77,11 @@ const TheHeaderUser = () => {
             className="header__inner__menu__middle"
             to="/it-companies"
           >
+<<<<<<< HEAD
             Companies
+=======
+            COMPANIES
+>>>>>>> 766310a (Implement Manage Posts Function and Manage Feedback for Admin)
           </CLink>
         </CHeaderNavItem>
         <CHeaderNavItem className="header__inner__menu">
