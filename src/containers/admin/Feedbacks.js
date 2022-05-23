@@ -69,7 +69,7 @@ const Feedbacks = () => {
             {isRole ? (
               <>
                 {" "}
-                <CCardHeader>All feedbacks from users</CCardHeader>
+                <CCardHeader style={{ color: "#3c78d8" }}>All feedbacks from users</CCardHeader>
                 <CCardBody>
                   <CDataTable
                     items={feedbacks}
@@ -97,7 +97,7 @@ const Feedbacks = () => {
                                 deleteFeedback(item._id, (data) => {
                                   if (data.status === 200) {
                                     toast.success(
-                                      "Delete feedback successfully !",
+                                      "Delete successfully !",
                                       {
                                         position: toast.POSITION.BOTTOM_LEFT,
                                       }
@@ -108,7 +108,7 @@ const Feedbacks = () => {
                                       )
                                     );
                                   } else {
-                                    toast.error("Fail to delete! " + data.msg, {
+                                    toast.error("Fail to delete. Try later!" + data.msg, {
                                       position: toast.POSITION.BOTTOM_LEFT,
                                     });
                                   }
