@@ -262,7 +262,7 @@ const Moderators = () => {
               </CCardHeader>
               <CCardBody>
                 <CDataTable
-                 
+                  
                   items={moderators}
                   fields={[
                     { key: "_id", _classes: "font-weight-bold" },
@@ -318,7 +318,7 @@ const Moderators = () => {
                               });
                             }}
                           >
-                            <i className="cil-trash"></i>
+                            <i className="cil-x"></i>
                           </CButton>
                         </CTooltip>{" "}
                         <CTooltip
