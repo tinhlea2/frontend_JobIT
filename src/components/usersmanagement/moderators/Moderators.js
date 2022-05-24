@@ -142,9 +142,10 @@ const Moderators = () => {
                   show={primary}
                   onClose={() => setPrimary(!primary)}
                   color="primary"
+                  style={{borderColor: "#4da6ff"}}
                 >
-                  <CModalHeader closeButton>
-                    <CModalTitle>New moderator</CModalTitle>
+                  <CModalHeader style= {{backgroundColor: "#4da6ff"}} closeButton>
+                    <CModalTitle >New moderator</CModalTitle>
                   </CModalHeader>
                   <CModalBody
                     style={{ display: "flex", justifyContent: "center" }}
@@ -237,14 +238,15 @@ const Moderators = () => {
                   </CModalBody>
                   <CModalFooter>
                     <CButton
-                      color="primary"
+                     
                       disabled={!userName || !password || !confirmPassword}
                       onClick={handleSubmit}
+                      style= {{backgroundColor: "#4da6ff", borderColor: "#4da6ff"}}
                     >
                       Create
                     </CButton>{" "}
                     <CButton
-                      color="secondary"
+                      color="danger"
                       onClick={() => {
                         setPrimary(!primary);
                         setUserName("");
@@ -344,6 +346,7 @@ const Moderators = () => {
                   pages={numPages}
                   doubleArrows={false}
                   align="center"
+                  
                 />
               </CCardBody>
             </>
