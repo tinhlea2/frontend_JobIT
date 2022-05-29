@@ -173,16 +173,16 @@ function Post({
           <CModal
             show={isOpen}
             onClose={() => setOpen(!isOpen)}
-            //color="success"      
-
+            //color="success"
           >
-            <CModalHeader closeButton style={{
-                    backgroundColor: "#4da6ff",
-                    color: "white"
-                  }}>
-              
+            <CModalHeader
+              closeButton
+              style={{
+                backgroundColor: "#4da6ff",
+                color: "white",
+              }}
+            >
               <CModalTitle>{title}</CModalTitle>
-              
             </CModalHeader>
             <CModalBody>
               <CForm action="" method="post" className="form-horizontal">
@@ -283,9 +283,8 @@ function Post({
                 }}
                 style={{
                   backgroundColor: "#4da6ff",
-                  color: "white"
+                  color: "white",
                 }}
-
               >
                 Apply Now
               </CButton>{" "}
