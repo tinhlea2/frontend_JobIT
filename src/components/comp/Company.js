@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 
 import { CCard, CCol, CContainer, CRow } from "@coreui/react";
-
+import { css } from "@emotion/react";
+import BeatLoader from "react-spinners/BeatLoader";
 import styled from "styled-components";
 import { getPostList } from "src/redux/actions/getPostList";
 import Post from "../common/Post";
@@ -72,16 +73,23 @@ const Company = ({ match }) => {
     });
   }, [id]);
 
+  const overrideLoadingCSS = css`
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+  `;
+
   return (
     <LoadingOverlay
       active={loading}
-      spinner
-      text="Loading..."
-      style={{
-        position: "fixed",
-        width: "100%",
-        height: "100%",
-        zIndex: "9999",
+      spinner={
+        <BeatLoader css={overrideLoadingCSS} color="rgb(77, 166, 255)" />
+      }
+      styles={{
+        overlay: (base) => ({
+          ...base,
+          background: "rgb(172 165 165 / 50%)",
+        }),
       }}
     >
       <StyledCompany>

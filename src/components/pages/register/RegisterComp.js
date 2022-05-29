@@ -20,6 +20,8 @@ import { register } from "../../../redux/actions/register";
 import { toast } from "react-toastify";
 import { useSelector } from "react-redux";
 import LoadingOverlay from "react-loading-overlay";
+import { css } from "@emotion/react";
+import BeatLoader from "react-spinners/BeatLoader";
 
 const RegisterComp = () => {
   const role = "company";
@@ -71,16 +73,24 @@ const RegisterComp = () => {
       });
     }
   };
+
+  const overrideLoadingCSS = css`
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+  `;
+
   return (
     <LoadingOverlay
       active={loading}
-      spinner
-      text="Loading..."
-      style={{
-        position: "fixed",
-        width: "100%",
-        height: "100%",
-        zIndex: "9999",
+      spinner={
+        <BeatLoader css={overrideLoadingCSS} color="rgb(77, 166, 255)" />
+      }
+      styles={{
+        overlay: (base) => ({
+          ...base,
+          background: "rgb(172 165 165 / 50%)",
+        }),
       }}
     >
       <div className="c-app c-default-layout flex-row align-items-center">

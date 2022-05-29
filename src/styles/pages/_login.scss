@@ -70,3 +70,11 @@
     margin: 0 auto;
   }
 }
+
+.c-switch-slider {
+  width: 50px;
+  border-radius: 12px;
+  &::before {
+    border-radius: 12px;
+  }
+}

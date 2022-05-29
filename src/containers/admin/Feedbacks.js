@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-
+import { css } from "@emotion/react";
+import BeatLoader from "react-spinners/BeatLoader";
 import {
   CCol,
   CRow,
@@ -43,6 +44,11 @@ const Feedbacks = () => {
     });
   }, []);
 
+  const overrideLoadingCSS = css`
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+  `;
   // const pageChange = (newPage) => {
   //   getFeedback(newPage, (data) => {
   //     setFeedbacks(data.data.posts);
@@ -54,13 +60,14 @@ const Feedbacks = () => {
   return (
     <LoadingOverlay
       active={loading}
-      spinner
-      text="Loading..."
-      style={{
-        position: "fixed",
-        width: "100%",
-        height: "100%",
-        zIndex: "9999",
+      spinner={
+        <BeatLoader css={overrideLoadingCSS} color="rgb(77, 166, 255)" />
+      }
+      styles={{
+        overlay: (base) => ({
+          ...base,
+          background: "rgb(172 165 165 / 50%)",
+        }),
       }}
     >
       <CRow>
