@@ -20,6 +20,8 @@ import { register } from "../../../redux/actions/register";
 import { toast } from "react-toastify";
 import { useSelector } from "react-redux";
 import LoadingOverlay from "react-loading-overlay";
+import { css } from "@emotion/react";
+import BeatLoader from "react-spinners/BeatLoader";
 
 const Register = () => {
   const role = "iter";
@@ -72,24 +74,39 @@ const Register = () => {
       });
     }
   };
+
+  const overrideLoadingCSS = css`
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+  `;
+
   return (
     <LoadingOverlay
       active={loading}
-      spinner
-      text="Loading..."
-      style={{
-        position: "fixed",
-        width: "100%",
-        height: "100%",
-        zIndex: "9999",
+      spinner={
+        <BeatLoader css={overrideLoadingCSS} color="rgb(77, 166, 255)" />
+      }
+      styles={{
+        overlay: (base) => ({
+          ...base,
+          background: "rgb(172 165 165 / 50%)",
+        }),
       }}
     >
       <div className="c-app c-default-layout flex-row align-items-center">
         <CContainer>
           <CRow className="justify-content-center">
-            <CCol md="5" >
+            <CCol md="5">
               <CCard className="mx-4">
-                <CCardBody className="p-4" style={{borderRadius: "10px", borderStyle: "outset", borderWidth: "5px"}}>
+                <CCardBody
+                  className="p-4"
+                  style={{
+                    borderRadius: "10px",
+                    borderStyle: "outset",
+                    borderWidth: "5px",
+                  }}
+                >
                   <CForm>
                     <h1 style={{ fontSize: "40px" }}>Register</h1>
                     <br />
@@ -168,7 +185,7 @@ const Register = () => {
                       </span>
                     </CInputGroup>
                     <CButton
-                      style={{marginBottom:"20px"}}
+                      style={{ marginBottom: "20px" }}
                       className="btn--primary"
                       block
                       onClick={handleRegister}

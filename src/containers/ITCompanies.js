@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import LoadingOverlay from "react-loading-overlay";
+import BeatLoader from "react-spinners/BeatLoader";
 // import ReactLoading from "react-loading";
 import defaultImage from "../assets/images/default_image.png";
-
+import { css } from "@emotion/react";
 import {
   CRow,
   CCol,
@@ -66,16 +67,23 @@ const ITCompanies = () => {
   const search = () => {
     setQuery(searchInput);
   };
+  const overrideLoadingCSS = css`
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+  `;
+
   return (
     <LoadingOverlay
       active={loadingList}
-      spinner
-      text="Loading..."
-      style={{
-        position: "fixed",
-        width: "100%",
-        height: "100%",
-        zIndex: "9999",
+      spinner={
+        <BeatLoader css={overrideLoadingCSS} color="rgb(77, 166, 255)" />
+      }
+      styles={{
+        overlay: (base) => ({
+          ...base,
+          background: "rgb(172 165 165 / 50%)",
+        }),
       }}
     >
       <CContainer>
@@ -135,7 +143,7 @@ const ITCompanies = () => {
           </CCol>
         </CRow>
         {/* {loadingList && <ReactLoading type="spinningBubbles" color="#321fdb" />} */}
-        <div className="flex flex-wrap" style={{ justifyContent: "center" }}>
+        <div className="flex flex-wrap">
           {companies &&
             companies.map((item, index) => {
               return (
@@ -151,9 +159,9 @@ const ITCompanies = () => {
             })}
           {!companies.length && (
             <CCard className="no-result">
-              {" "}
-              <img src={notfound} alt=""></img>
-              <div>Sorry, we couldn't find any results for your search! </div>
+              <i class="cil-rain" style={{ fontSize: "24px" }}></i>
+              {/* <img src={notfound} alt=""></img> */}
+              <div>We couldn't find any results for your searching! </div>
             </CCard>
           )}
         </div>

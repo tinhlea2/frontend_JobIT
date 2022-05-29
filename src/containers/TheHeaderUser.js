@@ -37,7 +37,7 @@ const TheHeaderUser = () => {
             className="header__inner__menu__middle"
             to="/it-companies"
           >
-             IT COMPANIES
+            IT COMPANIES
           </CLink>
         </CHeaderNavItem>
         <CHeaderNavItem className="header__inner__menu">
@@ -69,7 +69,7 @@ const TheHeaderUser = () => {
         </CHeaderNavItem>
         <CHeaderNavItem className="header__inner__menu">
           <CLink activeClassName="--active" exact to="/">
-            ALL JOBS
+            HIRING JOBS
           </CLink>
         </CHeaderNavItem>
         <CHeaderNavItem className="header__inner__menu">
@@ -83,7 +83,7 @@ const TheHeaderUser = () => {
         </CHeaderNavItem>
         <CHeaderNavItem className="header__inner__menu">
           <CLink activeClassName="--active" to="/about-us">
-            ABOUT US
+            ABOUT OUR TEAM
           </CLink>
         </CHeaderNavItem>
       </CHeaderNav>
@@ -94,19 +94,16 @@ const TheHeaderUser = () => {
         </CHeaderNav>
       ) : (
         <CHeaderNav className="px-3">
-
-          <Link to="/login" style={{marginRight:"30px", color: "skyblue" }}>
-            
-              Login
-           
+          <Link to="/login" style={{ marginRight: "30px", color: "skyblue" }}>
+            Login
           </Link>
-         
+
           {/* <Link to="/register" style={{marginRight:"30px"}}>
             
               Register
            
           </Link> */}
-{/* 
+          {/* 
           <Link to="/register-company" style={{marginRight:"40px"}}>
             
           Register for recruitment
