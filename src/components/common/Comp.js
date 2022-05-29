@@ -4,17 +4,23 @@ import { CCard, CCardBody, CLink } from "@coreui/react";
 import defaultImage from "../../assets/images/default_image.png";
 
 const StyledComp = styled.section`
+  flex: 0 0 48%;
+  margin-right: 4%;
+  :nth-child(2n) {
+    margin-right: 0;
+  }
   .card {
-    width: 450px;
     margin: 40px;
     text-align: center;
     align-items: center;
-    border : none;
+    border: none;
     border-radius: 20px;
-   
   }
+
   .center-comp {
     align-items: center;
+    width: 100%;
+    height: 25vh;
   }
   .align {
     margin: 10px;
@@ -34,32 +40,54 @@ function Comp({ compName, address, image, recruitingPost, compId }) {
   return (
     <StyledComp>
       <CCard className="card">
-        <CCardBody
-          className="flex center-comp"
-          style={{ flexDirection: "column" }}
-        >
+        <CCardBody className="flex center-comp" style={{ padding: "2rem" }}>
           <div className="image">
             {" "}
             <img
               src={image ? image : defaultImage}
               className="image"
               alt="avatar"
+              style={{ width: "auto", borderRadius: "10px" }}
             />
           </div>
-          <h4 className="mt-4 text--secondary text--large">{compName || ""}</h4>
-          <div className="flex  margin-top">
-            <CLink
-              className="mr-2"
-              to={`/posts/company/${compId}`}
-              target="_blank"
-              params={{ companyId: compId }}
+          <div style={{ marginLeft: "2rem" }}>
+            <h4
+              className="text--secondary text--large"
+              style={{ display: "flex", justifyContent: "flex-start" }}
             >
-             <span className="text--primary text--underline"> {recruitingPost + " jobs"}</span>
-            </CLink>
-
-            <p className="ml-2">
-              <i className="cil-location-pin"></i>
-              {address || "Address"}
+              <i class="cil-building mr-2"></i>
+              {compName || ""}
+            </h4>
+            <p
+              className="mt-2"
+              style={{ display: "flex", justifyContent: "flex-start" }}
+            >
+              <i class="cil-magnifying-glass mr-2"></i>
+              Hiring:
+              <CLink
+                className="mr-2"
+                to={`/posts/company/${compId}`}
+                target="_blank"
+                params={{ companyId: compId }}
+              >
+                <span className=" ml-2" style={{ color: "#ff754d" }}>
+                  {" "}
+                  {Number(recruitingPost) > 1
+                    ? `${recruitingPost} jobs`
+                    : `${recruitingPost} job`}
+                </span>
+              </CLink>
+            </p>
+            <p
+              className="mt-2"
+              style={{
+                display: "flex",
+                justifyContent: "flex-start",
+                alignItems: "center",
+              }}
+            >
+              <i className="cil-location-pin mr-2"></i>
+              {address || "No Address"}
             </p>
           </div>
         </CCardBody>

@@ -31,7 +31,6 @@ const StyledCompany = styled.div`
   .photo {
     width: 150px;
     height: 150px;
-    border: 1px solid #eeeeee;
   }
   .detail {
     display: flex;
@@ -104,19 +103,35 @@ const Company = ({ match }) => {
                     {" "}
                     <img
                       src={company.image ? company.image : defaultImage}
+                      style={{ objectFit: "contain", marginLeft: "20px" }}
                       className="photo"
                       alt="avatar"
                     />
                   </div>
                   <div className="flex comp-info">
-                    <div className="flex space-between align-item">
+                    <div className="">
                       <h2 className="h2 text--primary">{company.name}</h2>
                       <p className="paddingRight">
-                        <i className="cil-star rating"></i>
-                        <i className="cil-star rating"></i>
-                        <i className="cil-star rating"></i>
-                        <i className="cil-star rating"></i>
-                        <i className="cil-star-half rating"></i>
+                        <i
+                          className="cil-star rating"
+                          style={{ color: "#f2ce0e", fontSize: "25px" }}
+                        ></i>
+                        <i
+                          className="cil-star rating"
+                          style={{ color: "#f2ce0e", fontSize: "25px" }}
+                        ></i>
+                        <i
+                          className="cil-star rating"
+                          style={{ color: "#f2ce0e", fontSize: "25px" }}
+                        ></i>
+                        <i
+                          className="cil-star rating"
+                          style={{ color: "#f2ce0e", fontSize: "25px" }}
+                        ></i>
+                        <i
+                          className="cil-star rating"
+                          style={{ color: "#f2ce0e", fontSize: "25px" }}
+                        ></i>
                       </p>
                     </div>
                     <div className="flex mt-2">

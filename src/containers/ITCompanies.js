@@ -143,7 +143,7 @@ const ITCompanies = () => {
           </CCol>
         </CRow>
         {/* {loadingList && <ReactLoading type="spinningBubbles" color="#321fdb" />} */}
-        <div className="flex flex-wrap" style={{ justifyContent: "center" }}>
+        <div className="flex flex-wrap">
           {companies &&
             companies.map((item, index) => {
               return (
