@@ -22,7 +22,8 @@ import {
   CCardBody,
   CInvalidFeedback,
 } from "@coreui/react";
-
+import { css } from "@emotion/react";
+import BeatLoader from "react-spinners/BeatLoader";
 import { toast } from "react-toastify";
 import { getITerCV } from "src/redux/actions/getITerCV";
 import { createCV } from "src/redux/actions/createCV";
@@ -272,16 +273,24 @@ const CV = () => {
       });
     }
   };
+
+  const overrideLoadingCSS = css`
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+  `;
+
   return (
     <LoadingOverlay
       active={loading || loadingUpdate || loadingCreate}
-      spinner
-      text="Loading..."
-      style={{
-        position: "fixed",
-        width: "100%",
-        height: "100%",
-        zIndex: "9999",
+      spinner={
+        <BeatLoader css={overrideLoadingCSS} color="rgb(77, 166, 255)" />
+      }
+      styles={{
+        overlay: (base) => ({
+          ...base,
+          background: "rgb(172 165 165 / 50%)",
+        }),
       }}
     >
       <StyledCV>
@@ -399,10 +408,10 @@ const CV = () => {
                     invitation from employers!
                   </div>
                   <br></br>
-                  <CButton 
+                  <CButton
                     style={{
                       backgroundColor: "#4da6ff",
-                      color: "white"
+                      color: "white",
                     }}
                     disabled={loading}
                     onClick={() => setOpen(!isOpen)}
@@ -416,8 +425,8 @@ const CV = () => {
         )}
 
         <CModal show={isOpen} onClose={() => setOpen(!isOpen)} color="primary">
-          <CModalHeader closeButton style={{backgroundColor: "#4da6ff" }} >
-            <CModalTitle >Your CV</CModalTitle>
+          <CModalHeader closeButton style={{ backgroundColor: "#4da6ff" }}>
+            <CModalTitle>Your CV</CModalTitle>
           </CModalHeader>
           <CModalBody>
             <CForm
@@ -499,7 +508,7 @@ const CV = () => {
               <CRow xs="12" md="12" className="mb-2">
                 <CCol md="4" style={{ textAlign: "center" }}>
                   <CButton
-                    style={{ textAlign: "center", backgroundColor: "#4da6ff"}}
+                    style={{ textAlign: "center", backgroundColor: "#4da6ff" }}
                     color="primary"
                     onClick={handleClick}
                   >
@@ -577,7 +586,11 @@ const CV = () => {
             </CForm>
           </CModalBody>
           <CModalFooter>
-            <CButton color="success" onClick={handleSubmit} style={{backgroundColor: "#4da6ff"}}>
+            <CButton
+              color="success"
+              onClick={handleSubmit}
+              style={{ backgroundColor: "#4da6ff" }}
+            >
               Create
             </CButton>{" "}
             <CButton
