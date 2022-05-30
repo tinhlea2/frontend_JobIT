@@ -71,7 +71,7 @@ function Feedback() {
                 <CTextarea
                   style={{ width: "100%", marginBottom: "10px" }}
                   rows="5"
-                  placeholder="Content"
+                  placeholder="Enter your feedback"
                   onChange={(event) => setContent(event.target.value)}
                 />
                 <div>
@@ -85,6 +85,7 @@ function Feedback() {
                       height: "2.5rem",
                       fontSize: "1.2rem",
                       borderRadius: "20px",
+                      backgroundColor: "#4d94ff"
                     }}
                   >
                     Send

@@ -256,14 +256,14 @@ const Profile = () => {
           </CCol>
           <CCol xs="12" className="mb-4" md="5">
             <CCard>
-              <CCardBody>
+              <CCardBody >
                 <CForm
                   action=""
                   method="post"
                   className="form-horizontal  was-validated"
                   style={{ width: "100%" }}
                 >
-                  <CFormGroup row>
+                  <CFormGroup row >
                     <CCol md="3">
                       <CLabel>Full name</CLabel>
                     </CCol>
@@ -327,13 +327,15 @@ const Profile = () => {
                       />
                     </CCol>
                   </CFormGroup>
-                  <CButton
-                    color="success"
-                    onClick={saveChanges}
-                    disabled={!name || !phone || !address}
-                  >
-                    Save changes
-                  </CButton>
+                  <CFormGroup style={{ alignItems: "center", textAlign: "center" }}>
+                    <CButton 
+                      color="success"
+                      onClick={saveChanges}
+                      disabled={!name || !phone || !address}
+                    >
+                      Save
+                    </CButton>
+                  </CFormGroup>
                 </CForm>
               </CCardBody>
             </CCard>
@@ -402,13 +404,15 @@ const Profile = () => {
                       {error}
                     </span>
                   </CFormGroup>
-                  <CButton
-                    color="success"
-                    onClick={changePass}
-                    disabled={!pass || !newPass || !newConPass}
-                  >
-                    Change password
-                  </CButton>
+                  <CFormGroup style={{ alignItems: "center", textAlign: "center" }}>
+                    <CButton
+                      color="success"
+                      onClick={changePass}
+                      disabled={!pass || !newPass || !newConPass}
+                    >
+                      Change password
+                    </CButton>
+                  </CFormGroup>
                 </CForm>
               </CCardBody>
             </CCard>
