@@ -266,7 +266,10 @@ const Profile = () => {
                   style={{ display: "none" }}
                   ref={hiddenFileInput}
                 />
-                <CButton className="btn--secondary" onClick={handleClick}>
+                <CButton className="btn--secondary" onClick={handleClick} style={{
+                      backgroundColor: "#4da6ff",
+                      color: "white"
+                    }}>
                   Choose avatar
                 </CButton>
               </CCardBody>
@@ -345,14 +348,18 @@ const Profile = () => {
                       />
                     </CCol>
                   </CFormGroup>
-
-                  <CButton
-                    color="success"
-                    onClick={saveChanges}
-                    disabled={!name || !phone || !address}
-                  >
-                    Save changes
-                  </CButton>
+                  <CFormGroup style={{ alignItems: "center", textAlign: "center" }}>
+                    <CButton 
+                      style={{
+                        backgroundColor: "#4da6ff",
+                        color: "white"
+                      }}
+                      onClick={saveChanges}
+                      disabled={!name || !phone || !address}
+                    >
+                      Save
+                    </CButton>
+                  </CFormGroup>
                 </CForm>
               </CCardBody>
             </CCard>
@@ -452,7 +459,10 @@ const Profile = () => {
                   </CFormGroup>
                   <CFormGroup style={{ alignItems: "center", textAlign: "center" }}>
                     <CButton
-                      color="success"
+                      style={{
+                        backgroundColor: "#4da6ff",
+                        color: "white"
+                      }}
                       onClick={changePass}
                       disabled={!pass || !newPass || !newConPass}
                     >
