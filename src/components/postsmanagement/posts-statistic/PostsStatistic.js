@@ -200,7 +200,7 @@ const PostsStatistic = () => {
     >
       <CCardBody className="statistic">
         <div style={{ height: "180px" }}>
-          <h1 className="title">Posts Chart</h1>
+          <h1 className="title">Post Chart</h1>
           <CRow>
             <CCol xs="4">
               <CFormGroup className="year-select">
@@ -230,12 +230,12 @@ const PostsStatistic = () => {
         ) : (
           <div style={{ height: "250px" }}>
             {" "}
-            <img src={nodata} alt="" width="100px" />
-            <h1 style={{ textAlign: "center", fontSize: "30px" }}>No data </h1>
+            {/* <img src={nodata} alt="" width="100px" /> */}
+            <h1 style={{ textAlign: "center", fontSize: "30px" }}>No data matching! </h1>
           </div>
         )}
         <div style={{ height: "180px" }}>
-          <h1 className="title">Posts - Skills Chart </h1>
+          <h1 className="title">Skill Chart </h1>
 
           <CRow>
             <CCol xs="6">
@@ -301,8 +301,8 @@ const PostsStatistic = () => {
         ) : (
           <div style={{ height: "250px" }}>
             {" "}
-            <img src={nodata} alt="" width="100px" />
-            <h1 style={{ textAlign: "center", fontSize: "30px" }}>No data </h1>
+            {/* <img src={nodata} alt="" width="100px" /> */}
+            <h1 style={{ textAlign: "center", fontSize: "30px" }}>No data matching! </h1>
           </div>
         )}
       </CCardBody>

@@ -110,7 +110,7 @@ const Moderators = () => {
       setPrimary(!primary);
     } else {
       if (userName === "" || password === "") {
-        toast.error("Please enter the empty input !", {
+        toast.error("Make sure that you don't leave any input empty !", {
           position: toast.POSITION.BOTTOM_LEFT,
         });
       } else {

@@ -16,14 +16,14 @@ const PageNotFound = () => {
           className="mb-4 mt-4"
           style={{ fontSize: "xxx-large", color: "#42445a" }}
         >
-          This page could not be found
+          This page could not be found!
         </h3>
         <Link
           className="mt-4 primary"
           to={link}
           style={{ fontSize: "x-large" }}
         >
-          Go Homepage
+          Go to Homepage
         </Link>
       </div>
     </div>
