@@ -14,6 +14,8 @@ import {
   CInputGroupText,
   CRow,
 } from "@coreui/react";
+import { css } from "@emotion/react";
+import BeatLoader from "react-spinners/BeatLoader";
 import CIcon from "@coreui/icons-react";
 import { useHistory } from "react-router-dom";
 import { login } from "../../../redux/actions/login";
@@ -23,7 +25,7 @@ import { toast } from "react-toastify";
 import { setInfo } from "src/redux/actions/setInfo";
 import { useSelector } from "react-redux";
 import LoadingOverlay from "react-loading-overlay";
-import {  FaEye } from "react-icons/fa";
+import { FaEye } from "react-icons/fa";
 const Login = () => {
   const history = useHistory();
   const storeLogin = useSelector((store) => store.login);
@@ -73,38 +75,54 @@ const Login = () => {
     });
   };
 
-  var isBool = true
+  var isBool = true;
   const showHidden = () => {
-    if(isBool) {
-      document.getElementById("password").setAttribute("type","text")
-      isBool = false
+    if (isBool) {
+      document.getElementById("password").setAttribute("type", "text");
+      isBool = false;
+    } else {
+      document.getElementById("password").setAttribute("type", "password");
+      isBool = true;
     }
-    else {
-      document.getElementById("password").setAttribute("type","password")
-      isBool = true
-    }
-  }
+  };
+
+  const overrideLoadingCSS = css`
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+  `;
+
   return (
     <LoadingOverlay
       active={loading}
-      spinner
-      text="Loading..."
-      style={{
-        position: "fixed",
-        width: "100%",
-        height: "100%",
-        zIndex: "9999",
+      spinner={
+        <BeatLoader css={overrideLoadingCSS} color="rgb(77, 166, 255)" />
+      }
+      styles={{
+        overlay: (base) => ({
+          ...base,
+          background: "rgb(172 165 165 / 50%)",
+        }),
       }}
     >
       <div className="c-app c-default-layout flex-row align-items-center">
         <CContainer>
           <CRow className="justify-content-center">
-            <CCol md="6" >
-              <CCardGroup >
-                <CCard className="p-4" style={{borderRadius: "10px", borderStyle: "outset", borderWidth: "5px"}}>
+            <CCol md="6">
+              <CCardGroup>
+                <CCard
+                  className="p-4"
+                  style={{
+                    borderRadius: "10px",
+                    borderStyle: "outset",
+                    borderWidth: "5px",
+                  }}
+                >
                   <CCardBody>
                     <CForm onSubmit={handleLogin}>
-                      <h1 style={{ fontSize: "50px", textAlign: "center" }}>Login</h1>
+                      <h1 style={{ fontSize: "50px", textAlign: "center" }}>
+                        Login
+                      </h1>
                       <br />
                       <p className="text-muted">Sign in to your account</p>
                       <CInputGroup className="mb-3">
@@ -137,51 +155,60 @@ const Login = () => {
                           value={form.password}
                           onChange={handleChange}
                         />
-                         <FaEye style={{position: "absolute", bottom: 9, right:25,cursor: "pointer"
+                        <FaEye
+                          style={{
+                            position: "absolute",
+                            bottom: 9,
+                            right: 25,
+                            cursor: "pointer",
                           }}
-                             onClick={showHidden}
-                          />
+                          onClick={showHidden}
+                        />
                       </CInputGroup>
                       <CRow>
                         <CCol xs="5">
                           <CButton
-                            style={{marginLeft:"80px"}}
+                            style={{ marginLeft: "80px" }}
                             className="px-4 btn--primary "
                             onClick={handleLogin}
                             disabled={!form.email || !form.password}
-                          
                           >
                             Login
                           </CButton>
                         </CCol>
                         <CCol xs="6" className="text-right">
                           <Link to="/forgot-password">
-                            <CButton className="px-0 text--primary" style={{marginRight:"50px"}}>
+                            <CButton
+                              className="px-0 text--primary"
+                              style={{ marginRight: "50px" }}
+                            >
                               Forgot password?
                             </CButton>
                           </Link>
                         </CCol>
                       </CRow>
-                      <CRow style={{marginTop:"10px"}}>
-                        <Link to="/register" style={{marginLeft:"150px", color: "#4da6ff"}}>
-            
+                      <CRow style={{ marginTop: "10px" }}>
+                        <Link
+                          to="/register"
+                          style={{ marginLeft: "150px", color: "#4da6ff" }}
+                        >
                           Register
-
                         </Link>
 
-                          <p style={{marginLeft:"10px", marginRight:"10px"}}>or</p>
+                        <p style={{ marginLeft: "10px", marginRight: "10px" }}>
+                          or
+                        </p>
 
-                        <Link to="/register-company" style={{color: "#4da6ff"}}>
-
+                        <Link
+                          to="/register-company"
+                          style={{ color: "#4da6ff" }}
+                        >
                           Register for recruitment
-
                         </Link>
                       </CRow>
                     </CForm>
-                    
                   </CCardBody>
                 </CCard>
-                
               </CCardGroup>
             </CCol>
           </CRow>

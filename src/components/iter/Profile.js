@@ -14,7 +14,8 @@ import {
   CCardBody,
   CInvalidFeedback,
 } from "@coreui/react";
-
+import { css } from "@emotion/react";
+import BeatLoader from "react-spinners/BeatLoader";
 import { toast } from "react-toastify";
 import { getProfile } from "../../redux/actions/getProfile";
 import { updateProfile } from "../../redux/actions/updateProfile";
@@ -220,22 +221,38 @@ const Profile = () => {
       });
     }
   };
+
+  const overrideLoadingCSS = css`
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+  `;
+
   return (
     <LoadingOverlay
       active={loading || loadingUpdate || loadingPass}
-      spinner
-      text="Loading..."
-      style={{
-        position: "fixed",
-        width: "100%",
-        height: "100%",
-        zIndex: "9999",
+      spinner={
+        <BeatLoader css={overrideLoadingCSS} color="rgb(77, 166, 255)" />
+      }
+      styles={{
+        overlay: (base) => ({
+          ...base,
+          background: "rgb(172 165 165 / 50%)",
+        }),
       }}
     >
-      <StyledProfile >
+      <StyledProfile>
         <CRow className="mt-4">
-          <CCol  xs="12"  className="mb-4" style ={{ textAlign: "center", paddingLeft: "20px", maxWidth: "30%", }}>
-          {/* <CCol xs="12" className="mb-4" md="3"> */}
+          <CCol
+            xs="12"
+            className="mb-4"
+            style={{
+              textAlign: "center",
+              paddingLeft: "20px",
+              maxWidth: "30%",
+            }}
+          >
+            {/* <CCol xs="12" className="mb-4" md="3"> */}
             <CCard>
               <CCardBody style={{ display: "flex", flexDirection: "column" }}>
                 <div className="avatar-wrapper">
@@ -256,7 +273,6 @@ const Profile = () => {
             </CCard>
           </CCol>
           <CCol xs="12" className="mb-4" md="7">
-
             <CCard>
               <CCardBody>
                 <CForm
@@ -329,12 +345,11 @@ const Profile = () => {
                       />
                     </CCol>
                   </CFormGroup>
-                 
+
                   <CButton
                     color="success"
                     onClick={saveChanges}
                     disabled={!name || !phone || !address}
-                    
                   >
                     Save changes
                   </CButton>
@@ -342,9 +357,17 @@ const Profile = () => {
               </CCardBody>
             </CCard>
           </CCol>
-          <CCol  xs="12"  className="mb-4" style ={{ textAlign: "center", paddingLeft: "20px", maxWidth: "30%",}}>
-          {/* <CCol xs="12" className="mb-4" md="3"> */}
-            <CCard style= {{ display: "none" }}>
+          <CCol
+            xs="12"
+            className="mb-4"
+            style={{
+              textAlign: "center",
+              paddingLeft: "20px",
+              maxWidth: "30%",
+            }}
+          >
+            {/* <CCol xs="12" className="mb-4" md="3"> */}
+            <CCard style={{ display: "none" }}>
               <CCardBody style={{ display: "flex", flexDirection: "column" }}>
                 <div className="avatar-wrapper">
                   <img className="profile-pic" src={avatar} alt="avatar" />
