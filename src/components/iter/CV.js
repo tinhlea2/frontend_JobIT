@@ -424,9 +424,9 @@ const CV = () => {
           </CRow>
         )}
 
-        <CModal show={isOpen} onClose={() => setOpen(!isOpen)} color="primary">
-          <CModalHeader closeButton style={{ backgroundColor: "#4da6ff" }}>
-            <CModalTitle>Your CV</CModalTitle>
+        <CModal  show={isOpen} onClose={() => setOpen(!isOpen)} >
+          <CModalHeader closeButton>
+            <CModalTitle >Your CV</CModalTitle>
           </CModalHeader>
           <CModalBody>
             <CForm
@@ -703,8 +703,8 @@ const CV = () => {
               <CRow xs="12" md="12" className="mb-2">
                 <CCol md="4" style={{ textAlign: "center" }}>
                   <CButton
-                    style={{ textAlign: "center" }}
-                    color="primary"
+                    style={{ textAlign: "center", backgroundColor: "#4da6ff",
+                    color: "white" }}
                     onClick={handleClick}
                   >
                     Choose image
@@ -781,7 +781,11 @@ const CV = () => {
             </CForm>
           </CModalBody>
           <CModalFooter>
-            <CButton color="success" onClick={handleUpdate}>
+            <CButton style={{
+                      backgroundColor: "#4da6ff",
+                      color: "white"
+                    }}
+                     onClick={handleUpdate}>
               Update
             </CButton>{" "}
             <CButton
