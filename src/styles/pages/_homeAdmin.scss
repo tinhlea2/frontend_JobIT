@@ -109,3 +109,13 @@
     }
   }
 }
+
+.dropdown-item {
+  &:active {
+    background-color: #ebedef;
+  }
+  &:focus-visible {
+    outline: 0;
+    border: 0;
+  }
+}

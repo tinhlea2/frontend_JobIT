@@ -142,7 +142,7 @@ const HomePage = () => {
                   compId={item.companyId}
                   description={item.description}
                   isApplied={item.apply.some(
-                    (i) => i.iterId === getAuth().userId
+                    (i) => i.iterId === getAuth().user.userId
                   )}
                 />
               );
