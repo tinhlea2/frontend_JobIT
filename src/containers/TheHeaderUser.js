@@ -14,7 +14,6 @@ import logo from "../assets/images/logo.png";
 
 import { TheHeaderDropdown } from "./index";
 import { useSelector } from "react-redux";
-
 const TheHeaderUser = () => {
   const storeSetInfo = useSelector((store) => store.setInfo);
 

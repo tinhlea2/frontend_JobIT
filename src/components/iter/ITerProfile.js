@@ -92,13 +92,11 @@ const ITerProfile = () => {
                   {" "}
                   <CNav variant="tabs" style={{ width: "86%" }}>
                     <CNavItem>
-                      <CNavLink className="text--secondary">
-                        My Profile
-                      </CNavLink>
+                      <CNavLink className="text--secondary">Profile</CNavLink>
                     </CNavItem>
                     {getAuth().role === "iter" && (
                       <CNavItem>
-                        <CNavLink className="text--secondary">My CV</CNavLink>
+                        <CNavLink className="text--secondary">Resume</CNavLink>
                       </CNavItem>
                     )}
                   </CNav>

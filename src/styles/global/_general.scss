@@ -244,3 +244,14 @@ a {
   justify-content: center;
   align-items: center;
 }
+
+.modal-content {
+  border: 0;
+}
+
+.modal-header {
+  .close {
+    color: white;
+    opacity: 1;
+  }
+}

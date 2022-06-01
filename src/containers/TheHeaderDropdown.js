@@ -21,7 +21,7 @@ const TheHeaderDropdown = () => {
   return (
     <CDropdown inNav className="c-header-nav-items mx-2" direction="down">
       <CDropdownToggle className="c-header-nav-link" caret={false}>
-         <p className ="mr-2 mb-2">{storeSetInfo?.data?.name}</p>
+        <p className="mr-2 mb-2">{storeSetInfo?.data?.name}</p>
         <div className="c-avatar">
           <CImg
             src={
