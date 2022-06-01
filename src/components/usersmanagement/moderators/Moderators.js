@@ -100,6 +100,7 @@ const Moderators = () => {
       }
       isValid = false;
     }
+
     if (isValid) {
       addMod(mod, (data) => {
         if (data.status === 200) {
