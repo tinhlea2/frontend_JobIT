@@ -56,12 +56,12 @@ const Login = () => {
         }
         const data = {
           image: image,
-          role: result.user.role,
-          name: result.user.name,
+          role: result.role,
+          name: result.name,
           token: result.token,
-          userId: result.user.userId,
+          userId: result.userId,
         };
-        setInfo({ name: result.user.name, image: image });
+        setInfo({ name: result.name, image: image });
         setAuth(data);
         history.push(ROUTER_HOMEPAGE);
         toast.success("Login successfully! ", {

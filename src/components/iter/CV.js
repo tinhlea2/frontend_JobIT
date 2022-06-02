@@ -121,7 +121,6 @@ const CV = () => {
   const [selected, setSelected] = useState([]);
 
   const handleChange = (event) => {
-    console.log(event.target.name + "=" + event.target.value);
     if (event.target.name === "birthday") {
       const date = new Date(event.target.value);
       setForm({
@@ -139,14 +138,15 @@ const CV = () => {
   };
 
   const handleSubmit = (event) => {
+    console.log("create cv");
     event.preventDefault();
 
     form.skill = [];
-    form.image = avatar || "";
     selected.map((item) => form.skill.push(item.value));
 
     const cv = {
       ...form,
+      image,
     };
 
     let isValid = true;
@@ -237,13 +237,13 @@ const CV = () => {
     event.preventDefault();
 
     form.skill = [];
-    form.image = avatar || "";
     if (selected) {
       selected.map((item) => form.skill.push(item.value));
     }
 
     const cv = {
       ...form,
+      image,
     };
     let isValid = true;
     for (var key in cv) {
@@ -402,7 +402,11 @@ const CV = () => {
             <CCol xs="12" className="mb-4">
               <CCard className="no-cv">
                 <CCardBody className="content">
-                  <div>Create your CV to apply for jobs!</div>
+                  <div style={{ color: "#ed4444" }}>YOUR CV IS MISSING!</div>
+                  <div>
+                    Create a CV to apply for jobs faster and get attractive
+                    invitation from employers!
+                  </div>
                   <br></br>
                   <CButton
                     style={{
@@ -412,7 +416,7 @@ const CV = () => {
                     disabled={loading}
                     onClick={() => setOpen(!isOpen)}
                   >
-                    Create CV
+                    Create Now !
                   </CButton>{" "}
                 </CCardBody>
               </CCard>
@@ -504,11 +508,7 @@ const CV = () => {
               <CRow xs="12" md="12" className="mb-2">
                 <CCol md="4" style={{ textAlign: "center" }}>
                   <CButton
-                    style={{
-                      textAlign: "center",
-                      backgroundColor: "#4da6ff",
-                      border: "0",
-                    }}
+                    style={{ textAlign: "center", backgroundColor: "#4da6ff" }}
                     color="primary"
                     onClick={handleClick}
                   >
@@ -650,7 +650,7 @@ const CV = () => {
                 <CCol md="8">
                   <CFormGroup row>
                     <CCol md="3">
-                      <CLabel>Full Name</CLabel>
+                      <CLabel>Name</CLabel>
                     </CCol>
                     <CCol xs="12" md="9">
                       <CInput
@@ -661,7 +661,7 @@ const CV = () => {
                       />
                     </CCol>
                     <CInvalidFeedback className="help-block">
-                      Enter your name
+                      Enter a name
                     </CInvalidFeedback>
                   </CFormGroup>
                   <CFormGroup row>
@@ -694,7 +694,7 @@ const CV = () => {
                         required
                       />
                       <CInvalidFeedback className="help-block">
-                        Enter your email
+                        Enter an email
                       </CInvalidFeedback>
                     </CCol>
                   </CFormGroup>

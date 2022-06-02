@@ -10,7 +10,7 @@ import React from "react";
 import { getAuth } from "src/utils/helpers";
 
 const Dashboard = () => {
-  const role = getAuth().username === "admin" ? "Admin" : "Moderator";
+  const role = getAuth().userName === "admin" ? "Admin" : "Moderator";
   return (
     <CRow>
       <CCol xs="12" className="mb-4">
@@ -24,7 +24,7 @@ const Dashboard = () => {
               {/* <hr className="my-2" /> */}
 
               <p className="lead mb-3">
-                <b>Username: </b> {getAuth().username}
+                <b>User name: </b> {getAuth().userName}
               </p>
               {/* <hr className="my-2" /> */}
               <p className="lead">
