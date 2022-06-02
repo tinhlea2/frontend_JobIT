@@ -73,8 +73,8 @@ function Comp({ compName, address, image, recruitingPost, compId }) {
                 <span className=" ml-2" style={{ color: "#ff754d" }}>
                   {" "}
                   {Number(recruitingPost) > 1
-                    ? `${recruitingPost || 0} jobs`
-                    : `${recruitingPost || 0} job`}
+                    ? `${recruitingPost} jobs`
+                    : `${recruitingPost} job`}
                 </span>
               </CLink>
             </p>

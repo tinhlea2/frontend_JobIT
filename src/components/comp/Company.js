@@ -217,7 +217,7 @@ const Company = ({ match }) => {
                             compId={item.companyId}
                             description={item.description}
                             isApplied={item.apply.some(
-                              (i) => i.iterId === getAuth().user.userId
+                              (i) => i.iterId === getAuth().userId
                             )}
                           />
                         );
