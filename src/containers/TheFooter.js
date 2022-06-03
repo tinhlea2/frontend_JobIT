@@ -24,7 +24,7 @@ const TheFooter = () => {
         <div className="footer__inner__links">
           <div className="footer__inner__links__item">
             <p className="text--xlarge underline underline--secondary margin-b">
-              learn more
+              Learn more
             </p>
             <ul>
               <li>
@@ -41,7 +41,7 @@ const TheFooter = () => {
           </div>
           <div className="footer__inner__links__item">
             <p className="text--xlarge underline underline--blue margin-b">
-              support
+              Support
             </p>
             <ul>
               <li>

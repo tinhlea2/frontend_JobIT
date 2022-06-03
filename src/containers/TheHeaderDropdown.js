@@ -39,10 +39,6 @@ const TheHeaderDropdown = () => {
           Profile
         </Link>
 
-        <CDropdownItem>
-          <CIcon name="cil-settings" className="mfe-2" />
-          Settings
-        </CDropdownItem>
         <CDropdownItem divider />
         {getAuth().role === "admin" || getAuth().role === "moderator" ? (
           <CDropdownItem

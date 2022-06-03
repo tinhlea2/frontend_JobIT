@@ -77,7 +77,7 @@ const TheHeaderUser = () => {
             className="header__inner__menu__middle"
             to="/it-companies"
           >
-            IT COMPANIES
+            COMPANIES
           </CLink>
         </CHeaderNavItem>
         <CHeaderNavItem className="header__inner__menu">
