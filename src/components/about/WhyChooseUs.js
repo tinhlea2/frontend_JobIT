@@ -9,7 +9,7 @@ function WhyChooseUs() {
       <div className="why-chooseus__inner">
         <div className="text__title">
           <h2 className="h2 text-center">
-            Why <span className="skyblue">choose us?</span>
+            About <span className="skyblue"> us?</span>
           </h2>
         </div>
         <div className="items">
@@ -18,11 +18,13 @@ function WhyChooseUs() {
               <img width="300px" height="300px" src={image1} alt="" />
               <div className="item__inner__text">
                 <h3 className="h3 underline underline--secondary">
-                  Focus only on IT jobs
+                  Why choose us?
                 </h3>
                 <p className="text--xlarge">
-                  We designed our site exclusively for the needs and interests
-                  of IT jobseekers.
+                We help you grow your career.
+                </p>
+                <p className="text--xlarge">
+                We do this by featuring the best IT jobs.
                 </p>
               </div>
             </div>
@@ -32,10 +34,16 @@ function WhyChooseUs() {
               <img width="300px" height="300px" src={image2} alt="" />
               <div className="item__inner__text">
                 <h3 className="h3 underline underline--primary">
-                  Screen candidates
+                What make us different?
                 </h3>
                 <p className="text--xlarge">
-                  Employers receive CVs only from experienced developers.
+                  We focus only on IT jobs.
+                </p>
+                <p className="text--xlarge">
+                Screen candidates.
+                </p>
+                <p className="text--xlarge">
+                Provide company reviews.
                 </p>
               </div>
             </div>
@@ -45,11 +53,16 @@ function WhyChooseUs() {
               <img width="300px" height="300px" src={image3} alt="" />
               <div className="item__inner__text">
                 <h3 className="h3 underline underline--blue">
-                  Provide company reviews
+                What are our details?
                 </h3>
                 <p className="text--xlarge">
-                  Jobseekers can see what it’s like to work inside a company
-                  before they apply.
+                  Name: IT jobs.
+                </p>
+                <p className="text--xlarge">
+                  Address: 54 Nguyen Luong Bang.
+                </p>
+                <p className="text--xlarge">
+                  Tel: 0922054327.
                 </p>
               </div>
             </div>
