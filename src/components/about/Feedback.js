@@ -80,7 +80,7 @@ function Feedback() {
                 <CTextarea
                   style={{ width: "100%", marginBottom: "10px" }}
                   rows="5"
-                  placeholder="Enter your feedback"
+                  placeholder="Your feedback helps us improve our website to give you a better experience."
                   onChange={(event) => setContent(event.target.value)}
                 />
                 <div>
