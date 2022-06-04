@@ -3,7 +3,7 @@ import Member from "../common/Member";
 
 import thienthu from "../../assets/images/members/thiennhu.png";
 import lienhuong from "../../assets/images/members/lienhuong.png";
-import nhatminh from "../../assets/images/members/nhatminh.png";
+import minhnhat from "../../assets/images/members/minhnhat.png";
 import trang from "../../assets/images/members/trang.png";
 import tinh from "../../assets/images/members/tinh.png";
 
@@ -23,11 +23,11 @@ function Members() {
               </span>{" "}
             </h2>
             <div className="members">
-              <Member name="Minh Nhật" avt={nhatminh} />
+              <Member name="Minh Nhật" avt={minhnhat} />
               <Member name="Thiên Như" avt={thienthu} />
               <Member name="Liên Hương" avt={lienhuong} />
-              <Member name="HuyềnTrang" avt={trang} />
-              <Member name="Thị Tình" avt={tinh} />
+              <Member name="Huyền Trang" avt={trang} />
+              <Member name="Lê Thị Tình" avt={tinh} />
             </div>
           </div>
         </div>
