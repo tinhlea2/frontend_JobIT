@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { toast } from "react-toastify";
 import { Profile, CV } from "./index";
 import { css } from "@emotion/react";
@@ -28,6 +28,7 @@ const ITerProfile = () => {
   const storeMail = useSelector((store) => store.receiveEmail);
   const loadingMail = storeMail.loading;
   const [isReceive, setIsReceive] = useState(null);
+  const isFirstTime = useRef(true);
 
   useEffect(() => {
     getITerCV((result) => {
@@ -39,6 +40,10 @@ const ITerProfile = () => {
 
   useEffect(() => {
     if (isReceive === null || getAuth().role === "company") {
+      return;
+    }
+    if (isFirstTime.current) {
+      isFirstTime.current = false;
       return;
     }
     receiveEmail(
