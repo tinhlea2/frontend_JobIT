@@ -80,7 +80,8 @@ const ForgotPassword = () => {
               </CCardBody>
               <CCardFooter className="p-4">
                 <CButton
-                  color="success"
+                  color= "success"
+                  style={{ backgroundColor: "#4da6ff" }}
                   block
                   onClick={handleForgotPass}
                   disabled={!email}

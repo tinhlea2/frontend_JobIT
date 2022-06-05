@@ -151,7 +151,7 @@ const HomePage = () => {
             <CCard className="no-result">
               <i class="cil-rain" style={{ fontSize: "24px" }}></i>
               {/* <img src={notfound} alt=""></img> */}
-              <div>We couldn't find any results for your searching! </div>
+              <div>So sorry! We couldn't find any results for your searching! </div>
             </CCard>
           )}
         </div>

@@ -5,7 +5,6 @@ import { getAuth } from "src/utils/helpers";
 import { css } from "@emotion/react";
 import BeatLoader from "react-spinners/BeatLoader";
 import { createFeedback } from "src/redux/actions/createFeedback";
-import image from "../../assets/images/feedback2.jpg";
 import { useHistory } from "react-router";
 import LoadingOverlay from "react-loading-overlay";
 import { useSelector } from "react-redux";

@@ -18,8 +18,10 @@ const TheFooter = () => {
     <footer className="footer">
       <div className="footer__inner">
         <div className="footer__inner__logo">
-          <img src={logo} alt="" />
-          <p className="margin-t-s">© IT Jobs, Inc. 2022</p>
+          <CLink activeClassName="--active" exact to="/">
+            <img src={logo} alt="" />
+          </CLink>
+          <p className="margin-t-s">© Copyright IT Jobs, Inc. 2022</p>
         </div>
         <div className="footer__inner__links">
           <div className="footer__inner__links__item">

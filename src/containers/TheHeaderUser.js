@@ -21,7 +21,7 @@ const TheHeaderUser = () => {
     <CHeader className="header">
       <CHeaderNav className="d-md-down-none mr-auto header__inner">
         <CHeaderNavItem className="px-3">
-          <CHeaderNavLink to="/">
+          <CHeaderNavLink activeClassName="--active" to="/">
             <img src={logo} alt="" width="100px"></img>
           </CHeaderNavLink>
         </CHeaderNavItem>
