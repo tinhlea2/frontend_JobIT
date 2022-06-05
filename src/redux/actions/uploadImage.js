@@ -4,18 +4,17 @@ export function uploadImage(object, data, resolve = () => {}) {
   store.dispatch({
     type: types.UPLOAD_IMAGE,
   });
-  return  fetch(
-    ` https://api.cloudinary.com/v1_1/do-an-cnpm/image/upload?api_key=484176915684615&signature=${object.signature}&timestamp=${object.timestamp}`,
+  return fetch(
+    ` https://api.cloudinary.com/v1_1/articlesgroup/image/upload?api_key=567228543314488&signature=${object.signature}&timestamp=${object.timestamp}`,
     {
       method: "POST",
       headers: {
         "Content-Type": "multipart/form-data",
         // Accept: "multipart/form-data",
         // Authorization: "Bearer " + getAuth().token
-
       },
       // body: JSON.stringify(data)
-      body: data
+      body: data,
     }
   )
     .then((response) => response.json())

@@ -110,7 +110,7 @@ const Profile = () => {
 
     axios
       .post(
-        `https://api.cloudinary.com/v1_1/do-an-cnpm/image/upload?api_key=484176915684615&timestamp=${object.timestamp}&signature=${object.signature}`,
+        `https://api.cloudinary.com/v1_1/articlesgroup/image/upload?api_key=567228543314488&timestamp=${object.timestamp}&signature=${object.signature}`,
         formData,
         {
           headers: {
@@ -266,10 +266,14 @@ const Profile = () => {
                   style={{ display: "none" }}
                   ref={hiddenFileInput}
                 />
-                <CButton className="btn--secondary" onClick={handleClick} style={{
-                      backgroundColor: "#4da6ff",
-                      color: "white"
-                    }}>
+                <CButton
+                  className="btn--secondary"
+                  onClick={handleClick}
+                  style={{
+                    backgroundColor: "#4da6ff",
+                    color: "white",
+                  }}
+                >
                   Choose avatar
                 </CButton>
               </CCardBody>
@@ -277,14 +281,14 @@ const Profile = () => {
           </CCol>
           <CCol xs="12" className="mb-4" md="7">
             <CCard>
-              <CCardBody >
+              <CCardBody>
                 <CForm
                   action=""
                   method="post"
                   className="form-horizontal  was-validated"
                   style={{ width: "100%" }}
                 >
-                  <CFormGroup row >
+                  <CFormGroup row>
                     <CCol md="3">
                       <CLabel>Full name</CLabel>
                     </CCol>
@@ -348,11 +352,13 @@ const Profile = () => {
                       />
                     </CCol>
                   </CFormGroup>
-                  <CFormGroup style={{ alignItems: "center", textAlign: "center" }}>
-                    <CButton 
+                  <CFormGroup
+                    style={{ alignItems: "center", textAlign: "center" }}
+                  >
+                    <CButton
                       style={{
                         backgroundColor: "#4da6ff",
-                        color: "white"
+                        color: "white",
                       }}
                       onClick={saveChanges}
                       disabled={!name || !phone || !address}
@@ -457,11 +463,13 @@ const Profile = () => {
                       {error}
                     </span>
                   </CFormGroup>
-                  <CFormGroup style={{ alignItems: "center", textAlign: "center" }}>
+                  <CFormGroup
+                    style={{ alignItems: "center", textAlign: "center" }}
+                  >
                     <CButton
                       style={{
                         backgroundColor: "#4da6ff",
-                        color: "white"
+                        color: "white",
                       }}
                       onClick={changePass}
                       disabled={!pass || !newPass || !newConPass}

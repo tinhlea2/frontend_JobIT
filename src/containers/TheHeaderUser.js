@@ -27,7 +27,7 @@ const TheHeaderUser = () => {
         </CHeaderNavItem>
         <CHeaderNavItem className="header__inner__menu">
           <CLink activeClassName="--active" to="/post-management">
-            POSTS MANAGEMENT
+            Hiring Posts
           </CLink>
         </CHeaderNavItem>
         <CHeaderNavItem className="header__inner__menu">
@@ -36,12 +36,12 @@ const TheHeaderUser = () => {
             className="header__inner__menu__middle"
             to="/it-companies"
           >
-            IT COMPANIES
+            Companies
           </CLink>
         </CHeaderNavItem>
         <CHeaderNavItem className="header__inner__menu">
           <CLink activeClassName="--active" to="/about-us">
-            ABOUT US
+            About our team
           </CLink>
         </CHeaderNavItem>
       </CHeaderNav>

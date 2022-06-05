@@ -1,5 +1,5 @@
 import React from "react";
-import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { TheLayout } from "./containers";
 import LogInAdmin from "./containers/LogInAdmin";
 
@@ -56,11 +56,7 @@ function App() {
         />
         <Route path="/it-companies" exact component={TheLayout(ITCompanies)} />
         <Route path="/about-us" exact component={TheLayout(AboutUs)} />
-        <Route
-          path="/posts/:id"
-          exact
-          component={TheLayout(DetailPost)}
-        />
+        <Route path="/posts/:id" exact component={TheLayout(DetailPost)} />
 
         <Route path={ROUTER_ADMIN} component={LogInAdmin} exact />
         {routes.map((route, idx) => {
