@@ -140,7 +140,7 @@ const CV = () => {
     event.preventDefault();
 
     form.skill = [];
-    form.image = avatar || "";
+    form.image = image || "";
     selected.map((item) => form.skill.push(item.value));
 
     const cv = {
@@ -190,10 +190,9 @@ const CV = () => {
     const formData = new FormData();
     // Update the formData object
     formData.append("file", file, file.name);
-
     axios
       .post(
-        `https://api.cloudinary.com/v1_1/do-an-cnpm/image/upload?api_key=484176915684615&timestamp=${object.timestamp}&signature=${object.signature}`,
+        `https://api.cloudinary.com/v1_1/articlesgroup/image/upload?api_key=567228543314488&timestamp=${object.timestamp}&signature=${object.signature}`,
         formData,
         {
           headers: {
@@ -235,7 +234,7 @@ const CV = () => {
     event.preventDefault();
 
     form.skill = [];
-    form.image = avatar || "";
+    form.image = image || "";
     if (selected) {
       selected.map((item) => form.skill.push(item.value));
     }
