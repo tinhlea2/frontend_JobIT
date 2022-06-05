@@ -83,7 +83,7 @@ function DetailPost() {
       setCompany(item.post.company[0]);
       setSkill(item.post.skill);
     });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -222,12 +222,12 @@ function DetailPost() {
       ) : (
         <CRow style={{ alignItems: "center", textAlign: "center" }}>
           <CCol xs="12" className="mb-4">
-          <CCard className="no-cv">
-            <CCardBody className="content">
-              <div> Post Not Found 404!</div>
-            </CCardBody>
-          </CCard>
-        </CCol>
+            <CCard className="no-cv">
+              <CCardBody className="content">
+                <div> Post Not Found 404!</div>
+              </CCardBody>
+            </CCard>
+          </CCol>
         </CRow>
       )}
     </StyledCV>
