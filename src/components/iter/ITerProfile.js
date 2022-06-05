@@ -90,7 +90,7 @@ const ITerProfile = () => {
               <CTabs>
                 <div style={{ display: "flex" }}>
                   {" "}
-                  <CNav variant="tabs" style={{ width: "86%" }}>
+                  <CNav variant="tabs" style={{ width: "80%" }}>
                     <CNavItem>
                       <CNavLink className="text--secondary">Profile</CNavLink>
                     </CNavItem>
