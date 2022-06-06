@@ -5,6 +5,7 @@ export function analyzeSkill(option, year, month, resolve = () => {}) {
   store.dispatch({
     type: types.ANALYZE_SKILL,
   });
+
   return fetch(
     `${process.env.REACT_APP_API_URL}/analysis/skill?option=${option}&year=${year}&month=${month}`,
     {
