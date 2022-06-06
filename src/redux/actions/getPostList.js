@@ -5,6 +5,7 @@ export function getPostList(id, resolve = () => {}) {
   store.dispatch({
     type: types.GET_POST_LIST,
   });
+
   return fetch(`${process.env.REACT_APP_API_URL}/posts/company/${id}`, {
     method: "GET",
     headers: {

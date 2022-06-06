@@ -5,6 +5,7 @@ export function createFeedback(data, resolve = () => {}) {
   store.dispatch({
     type: types.CREATE_FEEDBACK,
   });
+
   return fetch(`${process.env.REACT_APP_API_URL}/feedbacks`, {
     method: "POST",
     headers: {
