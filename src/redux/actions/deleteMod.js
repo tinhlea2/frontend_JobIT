@@ -5,18 +5,16 @@ export function deleteMod(id, resolve = () => {}) {
   store.dispatch({
     type: types.DELETE_MOD_API,
   });
-  return fetch(
-    `${process.env.REACT_APP_API_URL}/moderators/${id}`,
-    {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-        Authorization: "Bearer " + getAuth().token
-      },
-      // body: JSON.stringify(data),
-    }
-  )
+
+  return fetch(`${process.env.REACT_APP_API_URL}/moderators/${id}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      Authorization: "Bearer " + getAuth().token,
+    },
+    // body: JSON.stringify(data),
+  })
     .then((response) => response.json())
     .then((data) => {
       resolve(data);
