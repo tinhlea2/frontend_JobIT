@@ -5,18 +5,15 @@ export function apply(id, resolve = () => {}) {
   store.dispatch({
     type: types.APPLY_API,
   });
-  return fetch(
-    `${process.env.REACT_APP_API_URL}/posts/${id}/apply`,
-    {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-        Authorization: "Bearer " + getAuth().token
-      },
-      // body: JSON.stringify(data),
-    }
-  )
+  return fetch(`${process.env.REACT_APP_API_URL}/posts/${id}/apply`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      Authorization: "Bearer " + getAuth().token,
+    },
+    // body: JSON.stringify(data),
+  })
     .then((response) => response.json())
     .then((data) => {
       resolve(data);

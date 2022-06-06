@@ -183,7 +183,6 @@ function Post({
               }}
             >
               <CModalTitle>{title}</CModalTitle>
-              
             </CModalHeader>
             <CModalBody>
               <CForm action="" method="post" className="form-horizontal">
