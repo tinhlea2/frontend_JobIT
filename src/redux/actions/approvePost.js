@@ -5,19 +5,17 @@ export function approvePost(id, resolve = () => {}) {
   store.dispatch({
     type: types.APPROVE_POST_API,
   });
-  return fetch(
-    `${process.env.REACT_APP_API_URL}/posts/${id}/accept-post`,
-    {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-        Authorization: "Bearer " + getAuth().token,
-        // "Access-Control-Allow-Origin": "*"
-      },
-      // body: JSON.stringify(data),
-    }
-  )
+
+  return fetch(`${process.env.REACT_APP_API_URL}/posts/${id}/accept-post`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      Authorization: "Bearer " + getAuth().token,
+      // "Access-Control-Allow-Origin": "*"
+    },
+    // body: JSON.stringify(data),
+  })
     .then((response) => response.json())
     .then((data) => {
       resolve(data);
