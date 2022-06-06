@@ -4,17 +4,15 @@ export function register(data, role, resolve = () => {}) {
   store.dispatch({
     type: types.REGISTER_API,
   });
-  return fetch(
-    `${process.env.REACT_APP_API_URL}/auth/register-${role}`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify(data)
-    }
-  )
+
+  return fetch(`${process.env.REACT_APP_API_URL}/auth/register-${role}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify(data),
+  })
     .then((response) => response.json())
     .then((data) => {
       resolve(data);
