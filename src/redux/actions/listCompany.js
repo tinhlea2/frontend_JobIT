@@ -5,19 +5,17 @@ export function listCompany(newPage, resolve = () => {}) {
   store.dispatch({
     type: types.ADMIN_GET_LIST_COMPANY,
   });
-  return fetch(
-    `${process.env.REACT_APP_API_URL}/companies?page=${newPage}`,
-    {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-        Authorization: "Bearer " + getAuth().token,
-        // "Access-Control-Allow-Origin": "*"
-      },
+
+  return fetch(`${process.env.REACT_APP_API_URL}/companies?page=${newPage}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      Authorization: "Bearer " + getAuth().token,
+      // "Access-Control-Allow-Origin": "*"
+    },
     //  body: JSON.stringify(data),
-    }
-  )
+  })
     .then((response) => response.json())
     .then((data) => {
       resolve(data);

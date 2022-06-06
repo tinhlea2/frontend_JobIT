@@ -5,7 +5,6 @@ const initialState = {
   error: {},
   loading: false,
 };
-
 export default function reducer(state = initialState, actions) {
   switch (actions.type) {
     case types.DELETE_ITER_API:
