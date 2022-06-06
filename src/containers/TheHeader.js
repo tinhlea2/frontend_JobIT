@@ -62,7 +62,7 @@ const TheHeader = () => {
 
       <CHeaderNav className="px-3">
         <TheHeaderDropdown />
-      {getAuth().userName}
+        {getAuth().userName}
         <TheHeaderDropdownNotif />
       </CHeaderNav>
 
