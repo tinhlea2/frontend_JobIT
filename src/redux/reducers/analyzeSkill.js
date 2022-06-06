@@ -6,6 +6,7 @@ const initialState = {
   loading: false,
   rememberPath: "",
 };
+
 export default function reducer(state = initialState, actions) {
   switch (actions.type) {
     case types.ANALYZE_SKILL:
