@@ -43,22 +43,21 @@ const AppliedJobs = () => {
       <CRow>
         <CCol xs="12" className="mb-4">
           <CCard className="card-content">
-            <CCardHeader
-              style={{ paddingBottom: 0, fontSize: 24, paddingTop: 24 }}
+            <div
+              className="job-title ellipsis-text"
+              style={{ fontSize: "20px", color: "#ff0058", padding: "15px" }}
             >
-              <span className="job-title ellipsis-text text-truncate">
-                Your Applied Jobs
-              </span>
-            </CCardHeader>
+              History about your applied jobs
+            </div>
             <CCardBody>
               {posts.length > 0 ? (
                 <div>
                   <table className="table table-striped table-hover">
                     <thead>
                       <tr>
-                        <th>No.</th>
+                        <th>#</th>
                         <th>Company Name</th>
-                        <th>Job Title</th>
+                        <th>Post Name</th>
                         <th>Status</th>
                         <th>Job Detail</th>
                       </tr>
