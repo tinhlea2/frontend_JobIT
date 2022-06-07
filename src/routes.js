@@ -17,6 +17,7 @@ import Feedbacks from "./containers/admin/Feedbacks";
 import Company from "./components/comp/Company";
 import DetailPost from "./components/common/DetailPost";
 import UsersStatistic from "./components/usersmanagement/UsersStatistic";
+import AppliedJobs from "./components/iter/AppliedJobs";
 
 const routes = [
   { path: "/dashboard", name: "Dashboard", component: Dashboard },
@@ -85,6 +86,7 @@ const routes = [
   { path: "/posts/:id", component: DetailPost, exact: true },
 
   { path: "/profile", component: ITerProfile, exact: true },
+  { path: "/applied-jobs", component: AppliedJobs, exact: true },
 ];
 
 export default routes;
