@@ -51,6 +51,7 @@ import receiveEmail from "./receiveEmail";
 import updatePass from "./updatePass";
 import updatePost from "./updatePost";
 import completePost from "./completePost";
+import getAppliedJobs from "./getAppliedJobs";
 
 export default combineReducers({
   loginAdmin,
@@ -71,7 +72,7 @@ export default combineReducers({
   approveMultiPosts,
 
   updateUserPermissions,
-
+  getAppliedJobs,
   login,
   setShowSidebar,
   register,
