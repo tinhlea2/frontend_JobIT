@@ -1,7 +1,5 @@
 import { CCardGroup, CWidgetProgressIcon } from "@coreui/react";
 import React, { useEffect, useState } from "react";
-import office from "../../assets/icons/office.svg";
-import candidate from "../../assets/icons/candidate.svg";
 import LoadingOverlay from "react-loading-overlay";
 import { css } from "@emotion/react";
 import BeatLoader from "react-spinners/BeatLoader";
@@ -49,19 +47,15 @@ const UsersStatistic = () => {
           color="gradient-info"
         >
           <img
-            src="../../assets/icons/candidate.svg"
+            src="/candidate.svg"
+            // src=""
             alt=""
             width="100px"
             height="100px"
           />
         </CWidgetProgressIcon>
         <CWidgetProgressIcon header={iter} text="ITers" color="gradient-info">
-          <img
-            src="../../assets/icons/office.svg"
-            alt=""
-            width="100px"
-            height="100px"
-          />
+          <img src="/office.svg" alt="" width="100px" height="100px" />
         </CWidgetProgressIcon>
       </CCardGroup>
     </LoadingOverlay>
