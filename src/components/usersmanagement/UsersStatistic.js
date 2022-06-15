@@ -48,10 +48,20 @@ const UsersStatistic = () => {
           text="Companies"
           color="gradient-info"
         >
-          <img src={office} alt="" width="100px" height="100px" />
+          <img
+            src="../../assets/icons/candidate.svg"
+            alt=""
+            width="100px"
+            height="100px"
+          />
         </CWidgetProgressIcon>
         <CWidgetProgressIcon header={iter} text="ITers" color="gradient-info">
-          <img src={candidate} alt="" width="100px" height="100px" />
+          <img
+            src="../../assets/icons/office.svg"
+            alt=""
+            width="100px"
+            height="100px"
+          />
         </CWidgetProgressIcon>
       </CCardGroup>
     </LoadingOverlay>
