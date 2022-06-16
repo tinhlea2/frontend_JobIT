@@ -63,7 +63,6 @@ const TheHeader = () => {
       <CHeaderNav className="px-3">
         <TheHeaderDropdown />
         {getAuth().userName}
-        <TheHeaderDropdownNotif />
       </CHeaderNav>
 
       <CSubheader className="px-3 justify-content-between">

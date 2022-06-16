@@ -124,28 +124,6 @@ const Company = ({ match }) => {
                   <div className="flex comp-info">
                     <div className="">
                       <h2 className="h2 text--primary">{company.name}</h2>
-                      <p className="paddingRight">
-                        <i
-                          className="cil-star rating"
-                          style={{ color: "#f2ce0e", fontSize: "25px" }}
-                        ></i>
-                        <i
-                          className="cil-star rating"
-                          style={{ color: "#f2ce0e", fontSize: "25px" }}
-                        ></i>
-                        <i
-                          className="cil-star rating"
-                          style={{ color: "#f2ce0e", fontSize: "25px" }}
-                        ></i>
-                        <i
-                          className="cil-star rating"
-                          style={{ color: "#f2ce0e", fontSize: "25px" }}
-                        ></i>
-                        <i
-                          className="cil-star rating"
-                          style={{ color: "#f2ce0e", fontSize: "25px" }}
-                        ></i>
-                      </p>
                     </div>
                     <div className="flex mt-2">
                       <p className="detail">
