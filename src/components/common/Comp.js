@@ -67,7 +67,6 @@ function Comp({ compName, address, image, recruitingPost, compId }) {
               <CLink
                 className="mr-2"
                 to={`/posts/company/${compId}`}
-                target="_blank"
                 params={{ companyId: compId }}
               >
                 <span className=" ml-2" style={{ color: "#ff754d" }}>

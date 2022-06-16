@@ -151,7 +151,6 @@ const ApprovedPost = () => {
                   <td>
                     <CLink
                       to={`/post/appliers/${item._id}`}
-                      target="_blank"
                       params={{ id: item._id }}
                     >
                       <span className="text--primary text--underline">

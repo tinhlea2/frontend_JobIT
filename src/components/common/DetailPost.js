@@ -96,6 +96,18 @@ function DetailPost() {
             <CCard>
               <CCardBody>
                 <div className="layout-cv">
+                  <div
+                    className="flex align-item"
+                    style={{
+                      fontSize: "20px",
+                      fontWeight: 500,
+                      cursor: "pointer",
+                    }}
+                    onClick={() => history.goBack()}
+                  >
+                    <i class="cil-arrow-left mr-2"></i>
+                    Back
+                  </div>
                   <CForm action="" method="" className="form-horizontal">
                     <CRow className="title" style={{ padding: "20px" }}>
                       <div

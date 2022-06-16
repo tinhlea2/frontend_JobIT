@@ -4,6 +4,7 @@ import { CCard, CCol, CContainer, CRow } from "@coreui/react";
 import { css } from "@emotion/react";
 import BeatLoader from "react-spinners/BeatLoader";
 import styled from "styled-components";
+import { useHistory, useParams } from "react-router-dom";
 import { getPostList } from "src/redux/actions/getPostList";
 import Post from "../common/Post";
 import { getAuth } from "src/utils/helpers";
@@ -77,7 +78,7 @@ const Company = ({ match }) => {
     margin: 0 auto;
     border-color: red;
   `;
-
+  const history = useHistory();
   return (
     <LoadingOverlay
       active={loading}
@@ -95,6 +96,18 @@ const Company = ({ match }) => {
         <CContainer>
           <CRow>
             <CCol>
+              <div
+                className="flex align-item mt-3"
+                style={{
+                  fontSize: "20px",
+                  fontWeight: 500,
+                  cursor: "pointer",
+                }}
+                onClick={() => history.goBack()}
+              >
+                <i class="cil-arrow-left mr-2"></i>
+                Back
+              </div>
               <CCard style={{ marginTop: "20px" }}>
                 {" "}
                 <div className="flex company space-between">

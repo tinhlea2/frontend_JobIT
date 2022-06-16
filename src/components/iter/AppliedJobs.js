@@ -100,7 +100,6 @@ const AppliedJobs = () => {
                                 <CLink
                                   className="mr-2"
                                   to={`/posts/${_.get(post, "_id")}`}
-                                  target="_blank"
                                   params={{ id: _.get(post, "_id") }}
                                 >
                                   <CBadge
