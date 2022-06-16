@@ -3,7 +3,8 @@ import { useSelector } from "react-redux";
 import { ApprovingPost, ApprovedPost, ExpiredPost } from "./index";
 import MultiSelect from "react-multi-select-component";
 import { technicalSkill } from "../common/constants";
-
+import { css } from "@emotion/react";
+import BeatLoader from "react-spinners/BeatLoader";
 import {
   CRow,
   CCol,
@@ -119,16 +120,24 @@ const PostComp = () => {
     String(new Date().getMonth() + 1).padStart(2, "0") +
     "-" +
     String(new Date().getDate()).padStart(2, "0");
+
+  const overrideLoadingCSS = css`
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+  `;
+
   return (
     <LoadingOverlay
       active={loadingPost || loadingAdd}
-      spinner
-      text="Loading..."
-      style={{
-        position: "fixed",
-        width: "100%",
-        height: "100%",
-        zIndex: "9999",
+      spinner={
+        <BeatLoader css={overrideLoadingCSS} color="rgb(77, 166, 255)" />
+      }
+      styles={{
+        overlay: (base) => ({
+          ...base,
+          background: "rgb(172 165 165 / 50%)",
+        }),
       }}
     >
       <CRow>

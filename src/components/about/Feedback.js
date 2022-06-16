@@ -2,7 +2,8 @@ import { CButton, CForm, CInputGroup, CTextarea } from "@coreui/react";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 import { getAuth } from "src/utils/helpers";
-
+import { css } from "@emotion/react";
+import BeatLoader from "react-spinners/BeatLoader";
 import { createFeedback } from "src/redux/actions/createFeedback";
 import image from "../../assets/images/feedback2.jpg";
 import { useHistory } from "react-router";
@@ -41,16 +42,24 @@ function Feedback() {
       });
     }
   };
+
+  const overrideLoadingCSS = css`
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+  `;
+
   return (
     <LoadingOverlay
       active={loading}
-      spinner
-      text="Loading..."
-      style={{
-        position: "fixed",
-        width: "100%",
-        height: "100%",
-        zIndex: "9999",
+      spinner={
+        <BeatLoader css={overrideLoadingCSS} color="rgb(77, 166, 255)" />
+      }
+      styles={{
+        overlay: (base) => ({
+          ...base,
+          background: "rgb(172 165 165 / 50%)",
+        }),
       }}
     >
       <section className="feedback">
@@ -71,7 +80,7 @@ function Feedback() {
                 <CTextarea
                   style={{ width: "100%", marginBottom: "10px" }}
                   rows="5"
-                  placeholder="Enter your feedback"
+                  placeholder="Your feedback helps us improve our website to give you a better experience."
                   onChange={(event) => setContent(event.target.value)}
                 />
                 <div>

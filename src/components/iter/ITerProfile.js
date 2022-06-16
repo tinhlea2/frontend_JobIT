@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { toast } from "react-toastify";
-
 import { Profile, CV } from "./index";
-
+import { css } from "@emotion/react";
+import BeatLoader from "react-spinners/BeatLoader";
 import {
   CRow,
   CCol,
@@ -28,6 +28,7 @@ const ITerProfile = () => {
   const storeMail = useSelector((store) => store.receiveEmail);
   const loadingMail = storeMail.loading;
   const [isReceive, setIsReceive] = useState(null);
+  const isFirstTime = useRef(true);
 
   useEffect(() => {
     getITerCV((result) => {
@@ -39,6 +40,10 @@ const ITerProfile = () => {
 
   useEffect(() => {
     if (isReceive === null || getAuth().role === "company") {
+      return;
+    }
+    if (isFirstTime.current) {
+      isFirstTime.current = false;
       return;
     }
     receiveEmail(
@@ -63,16 +68,24 @@ const ITerProfile = () => {
   const handleReceiveEmail = () => {
     setIsReceive(!isReceive);
   };
+
+  const overrideLoadingCSS = css`
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+  `;
+
   return (
     <LoadingOverlay
       active={loading || loadingMail}
-      spinner
-      text="Loading..."
-      style={{
-        position: "fixed",
-        width: "100%",
-        height: "100%",
-        zIndex: "9999",
+      spinner={
+        <BeatLoader css={overrideLoadingCSS} color="rgb(77, 166, 255)" />
+      }
+      styles={{
+        overlay: (base) => ({
+          ...base,
+          background: "rgb(172 165 165 / 50%)",
+        }),
       }}
     >
       <CRow>
@@ -82,21 +95,19 @@ const ITerProfile = () => {
               <CTabs>
                 <div style={{ display: "flex" }}>
                   {" "}
-                  <CNav variant="tabs" style={{ width: "86%" }}>
+                  <CNav variant="tabs" style={{ width: "80%" }}>
                     <CNavItem>
-                      <CNavLink className="text--secondary">
-                        My Profile
-                      </CNavLink>
+                      <CNavLink className="text--secondary">Profile</CNavLink>
                     </CNavItem>
                     {getAuth().role === "iter" && (
                       <CNavItem>
-                        <CNavLink className="text--secondary">My CV</CNavLink>
+                        <CNavLink className="text--secondary">Resume</CNavLink>
                       </CNavItem>
                     )}
                   </CNav>
                   {getAuth().role === "iter" && (
                     <>
-                      <CLabel className="mr-2">Receive job email</CLabel>
+                      <CLabel className="mr-2">Receive jobs information</CLabel>
                       <CSwitch
                         id={"myCheck"}
                         className={"mx-1"}

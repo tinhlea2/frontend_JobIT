@@ -21,8 +21,8 @@ const TheHeaderDropdown = () => {
   return (
     <CDropdown inNav className="c-header-nav-items mx-2" direction="down">
       <CDropdownToggle className="c-header-nav-link" caret={false}>
+        <p className="mr-2 mb-2">{storeSetInfo?.data?.name}</p>
         <div className="c-avatar">
-          <p className="mr-2 mb-2">{storeSetInfo?.data?.name}</p>
           <CImg
             src={
               storeSetInfo.data.image ? storeSetInfo.data.image : defaultAvatar
@@ -39,7 +39,17 @@ const TheHeaderDropdown = () => {
           Profile
         </Link>
 
-        <CDropdownItem divider />
+        {getAuth().role === "iter" ? (
+          <>
+            <Link to="/applied-jobs" className="dropdown-item">
+              <i class="cil-reload mr-2"></i>
+              Applied Job List
+            </Link>
+          </>
+        ) : (
+          <></>
+        )}
+
         {getAuth().role === "admin" || getAuth().role === "moderator" ? (
           <CDropdownItem
             onClick={() => {
@@ -47,7 +57,7 @@ const TheHeaderDropdown = () => {
               history.push(ROUTER_ADMIN);
             }}
           >
-            <CIcon name="cil-lock-locked" className="mfe-2" />
+            <i class="cil-exit-to-app mr-2"></i>
             Log Out
           </CDropdownItem>
         ) : (
@@ -57,7 +67,7 @@ const TheHeaderDropdown = () => {
               history.push(ROUTER_HOMEPAGE);
             }}
           >
-            <CIcon name="cil-lock-locked" className="mfe-2" />
+            <i class="cil-exit-to-app mr-2"></i>
             Log Out
           </CDropdownItem>
         )}

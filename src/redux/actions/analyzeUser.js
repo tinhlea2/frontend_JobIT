@@ -5,6 +5,7 @@ export function analyzeUser(resolve = () => {}) {
   store.dispatch({
     type: types.ANALYZE_USER,
   });
+
   return fetch(`${process.env.REACT_APP_API_URL}/analysis/user`, {
     method: "GET",
     headers: {

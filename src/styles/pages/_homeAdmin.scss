@@ -60,13 +60,13 @@
           border-radius: 14px;
           &:hover {
             cursor: pointer;
-            background-color: #3c78d8 !important;
+            background-color: #4da6ff !important;
             color: #ffffff !important;
           }
         }
         .c-active {
           cursor: pointer;
-          background-color: #3c78d8 !important;
+          background-color: #4da6ff !important;
           color: #ffffff !important;
         }
       }
@@ -107,5 +107,15 @@
       font-weight: 400;
       color: #4f4f4f;
     }
+  }
+}
+
+.dropdown-item {
+  &:active {
+    background-color: #ebedef;
+  }
+  &:focus-visible {
+    outline: 0;
+    border: 0;
   }
 }

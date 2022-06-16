@@ -1,5 +1,5 @@
 import React from "react";
-import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { TheLayout } from "./containers";
 import LogInAdmin from "./containers/LogInAdmin";
 
@@ -22,14 +22,6 @@ import ConfirmCode from "./components/pages/ConfirmCode";
 import ChangePassword from "./components/pages/ChangePassword";
 import DetailPost from "./components/common/DetailPost";
 import PageNotFound from "./components/pages/404-page";
-// Containers
-// const TheLayout = React.lazy(() => import("./containers/TheLayout"));
-// const LogInAdmin = React.lazy(() => import("./containers/LogInAdmin"));
-// Pages
-// const Login = React.lazy(() => import('./views/pages/login/Login'));
-// const Register = React.lazy(() => import('./views/pages/register/Register'));
-// const Page404 = React.lazy(() => import('./views/pages/page404/Page404'));
-// const Page500 = React.lazy(() => import('./views/pages/page500/Page500'));
 
 function App() {
   return (
@@ -56,11 +48,7 @@ function App() {
         />
         <Route path="/it-companies" exact component={TheLayout(ITCompanies)} />
         <Route path="/about-us" exact component={TheLayout(AboutUs)} />
-        <Route
-          path="/posts/:id"
-          exact
-          component={TheLayout(DetailPost)}
-        />
+        <Route path="/posts/:id" exact component={TheLayout(DetailPost)} />
 
         <Route path={ROUTER_ADMIN} component={LogInAdmin} exact />
         {routes.map((route, idx) => {

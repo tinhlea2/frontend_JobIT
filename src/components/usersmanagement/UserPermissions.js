@@ -87,7 +87,7 @@ const UserPermissions = ({ match }) => {
               striped
               itemsPerPage={userPermissions.length}
               scopedSlots={{
-                PERMISSIONS: (item) => <td>{item.perName}</td>,
+                PERMISSIONS: (item) => <td>{item.permisionName}</td>,
                 OPTIONS: (permission) => (
                   <td>
                     <CFormGroup variant="custom-radio" inline>

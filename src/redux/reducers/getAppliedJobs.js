@@ -5,21 +5,22 @@ const initialState = {
   error: {},
   loading: false,
 };
+
 export default function reducer(state = initialState, actions) {
   switch (actions.type) {
-    case types.DELETE_FEEDBACK:
+    case types.GET_APPLIED_JOBS_API:
       return {
         ...state,
         loading: true,
         error: {},
       };
-    case types.DELETE_FEEDBACK_SUCCEED:
+    case types.GET_APPLIED_JOBS_API_SUCCEED:
       return {
         ...state,
         data: actions.payload,
         loading: false,
       };
-    case types.DELETE_FEEDBACK_FAILED:
+    case types.GET_APPLIED_JOBS_API_FAILED:
       return {
         ...state,
         error: actions.payload,

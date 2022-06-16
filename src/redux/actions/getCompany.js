@@ -5,6 +5,7 @@ export function getCompany(page, query, resolve = () => {}) {
   store.dispatch({
     type: types.GET_LIST_COMPANY,
   });
+
   return fetch(
     `${process.env.REACT_APP_API_URL}/companies/info?page=${page}&take=9&query=${query}`,
     {

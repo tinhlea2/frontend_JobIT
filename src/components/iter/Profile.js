@@ -14,7 +14,8 @@ import {
   CCardBody,
   CInvalidFeedback,
 } from "@coreui/react";
-
+import { css } from "@emotion/react";
+import BeatLoader from "react-spinners/BeatLoader";
 import { toast } from "react-toastify";
 import { getProfile } from "../../redux/actions/getProfile";
 import { updateProfile } from "../../redux/actions/updateProfile";
@@ -109,7 +110,7 @@ const Profile = () => {
 
     axios
       .post(
-        `https://api.cloudinary.com/v1_1/do-an-cnpm/image/upload?api_key=484176915684615&timestamp=${object.timestamp}&signature=${object.signature}`,
+        `https://api.cloudinary.com/v1_1/articlesgroup/image/upload?api_key=567228543314488&timestamp=${object.timestamp}&signature=${object.signature}`,
         formData,
         {
           headers: {
@@ -220,21 +221,38 @@ const Profile = () => {
       });
     }
   };
+
+  const overrideLoadingCSS = css`
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+  `;
+
   return (
     <LoadingOverlay
       active={loading || loadingUpdate || loadingPass}
-      spinner
-      text="Loading..."
-      style={{
-        position: "fixed",
-        width: "100%",
-        height: "100%",
-        zIndex: "9999",
+      spinner={
+        <BeatLoader css={overrideLoadingCSS} color="rgb(77, 166, 255)" />
+      }
+      styles={{
+        overlay: (base) => ({
+          ...base,
+          background: "rgb(172 165 165 / 50%)",
+        }),
       }}
     >
       <StyledProfile>
         <CRow className="mt-4">
-          <CCol xs="12" className="mb-4" md="3">
+          <CCol
+            xs="12"
+            className="mb-4"
+            style={{
+              textAlign: "center",
+              paddingLeft: "20px",
+              maxWidth: "30%",
+            }}
+          >
+            {/* <CCol xs="12" className="mb-4" md="3"> */}
             <CCard>
               <CCardBody style={{ display: "flex", flexDirection: "column" }}>
                 <div className="avatar-wrapper">
@@ -248,22 +266,29 @@ const Profile = () => {
                   style={{ display: "none" }}
                   ref={hiddenFileInput}
                 />
-                <CButton className="btn--secondary" onClick={handleClick}>
+                <CButton
+                  className="btn--secondary"
+                  onClick={handleClick}
+                  style={{
+                    backgroundColor: "#4da6ff",
+                    color: "white",
+                  }}
+                >
                   Choose avatar
                 </CButton>
               </CCardBody>
             </CCard>
           </CCol>
-          <CCol xs="12" className="mb-4" md="5">
+          <CCol xs="12" className="mb-4" md="7">
             <CCard>
-              <CCardBody >
+              <CCardBody>
                 <CForm
                   action=""
                   method="post"
                   className="form-horizontal  was-validated"
                   style={{ width: "100%" }}
                 >
-                  <CFormGroup row >
+                  <CFormGroup row>
                     <CCol md="3">
                       <CLabel>Full name</CLabel>
                     </CCol>
@@ -327,9 +352,14 @@ const Profile = () => {
                       />
                     </CCol>
                   </CFormGroup>
-                  <CFormGroup style={{ alignItems: "center", textAlign: "center" }}>
-                    <CButton 
-                      color="success"
+                  <CFormGroup
+                    style={{ alignItems: "center", textAlign: "center" }}
+                  >
+                    <CButton
+                      style={{
+                        backgroundColor: "#4da6ff",
+                        color: "white",
+                      }}
                       onClick={saveChanges}
                       disabled={!name || !phone || !address}
                     >
@@ -340,7 +370,36 @@ const Profile = () => {
               </CCardBody>
             </CCard>
           </CCol>
-          <CCol xs="12" className="mb-4" md="4">
+          <CCol
+            xs="12"
+            className="mb-4"
+            style={{
+              textAlign: "center",
+              paddingLeft: "20px",
+              maxWidth: "30%",
+            }}
+          >
+            {/* <CCol xs="12" className="mb-4" md="3"> */}
+            <CCard style={{ display: "none" }}>
+              <CCardBody style={{ display: "flex", flexDirection: "column" }}>
+                <div className="avatar-wrapper">
+                  <img className="profile-pic" src={avatar} alt="avatar" />
+                </div>
+
+                <input
+                  className="file-upload"
+                  type="file"
+                  onChange={handleFile}
+                  style={{ display: "none" }}
+                  ref={hiddenFileInput}
+                />
+                <CButton className="btn--secondary" onClick={handleClick}>
+                  Choose avatar
+                </CButton>
+              </CCardBody>
+            </CCard>
+          </CCol>
+          <CCol xs="12" className="mb-4" md="7">
             <CCard>
               <CCardBody>
                 <CForm
@@ -404,9 +463,14 @@ const Profile = () => {
                       {error}
                     </span>
                   </CFormGroup>
-                  <CFormGroup style={{ alignItems: "center", textAlign: "center" }}>
+                  <CFormGroup
+                    style={{ alignItems: "center", textAlign: "center" }}
+                  >
                     <CButton
-                      color="success"
+                      style={{
+                        backgroundColor: "#4da6ff",
+                        color: "white",
+                      }}
                       onClick={changePass}
                       disabled={!pass || !newPass || !newConPass}
                     >

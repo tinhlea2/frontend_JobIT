@@ -5,18 +5,15 @@ export function addMod(data, resolve = () => {}) {
   store.dispatch({
     type: types.ADD_MOD_API,
   });
-  return fetch(
-    `${process.env.REACT_APP_API_URL}/moderators`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-        Authorization: "Bearer " + getAuth().token
-      },
-      body: JSON.stringify(data)
-    }
-  )
+  return fetch(`${process.env.REACT_APP_API_URL}/moderators`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      Authorization: "Bearer " + getAuth().token,
+    },
+    body: JSON.stringify(data),
+  })
     .then((response) => response.json())
     .then((data) => {
       resolve(data);

@@ -27,16 +27,17 @@ const StyledCV = styled.div`
     }
     .cv-header {
       align-items: center;
-      background: #5b9cd6;
+      background: #00000012;
       padding: 20px 0px;
       margin-bottom: 20px;
       border-radius: 5px;
+      color: black;
     }
     .cv-header-info {
       padding: 10px 50px;
       font-size: 20px;
       line-height: 40px;
-      color: white;
+      // color: white;
     }
     .label {
       font-size: 30px;
@@ -83,7 +84,7 @@ function DetailPost() {
       setCompany(item.post.company[0]);
       setSkill(item.post.skill);
     });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -96,13 +97,13 @@ function DetailPost() {
               <CCardBody>
                 <div className="layout-cv">
                   <CForm action="" method="" className="form-horizontal">
-                    <CRow className="title">
+                    <CRow className="title" style={{ padding: "20px" }}>
                       <div
-                        className="flex space-between align-item"
+                        className="flex align-item"
                         style={{ width: "100%" }}
                       >
-                        {post.title}
-                        <CButton
+                        <i class="cil-tags mr-2"></i> {post.title}
+                        {/* <CButton
                           color="danger"
                           className="btn-apply"
                           onClick={() => {
@@ -130,7 +131,7 @@ function DetailPost() {
                           }}
                         >
                           Apply Now
-                        </CButton>{" "}
+                        </CButton>{" "} */}
                       </div>
                     </CRow>
                     <CRow xs="12" md="12" className="cv-header">
@@ -140,7 +141,7 @@ function DetailPost() {
                           alt="avatar"
                           width=" 200px"
                           height="200px"
-                          style={{ borderRadius: "5px" }}
+                          style={{ borderRadius: "5px", objectFit: "cover" }}
                         ></img>
                       </CCol>
                       <CCol md="9" className="cv-header-info">
@@ -168,9 +169,20 @@ function DetailPost() {
                       </CFormGroup>
                       <hr></hr>
                       <CFormGroup row>
-                        <CCol>
+                        <CCol
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            flexWrap: "wrap",
+                          }}
+                        >
                           {skill.map((item) => (
-                            <span className="skill">{item}</span>
+                            <span
+                              className="skill"
+                              style={{ marginBottom: "10px" }}
+                            >
+                              {item}
+                            </span>
                           ))}
                         </CCol>
                       </CFormGroup>
@@ -181,8 +193,11 @@ function DetailPost() {
                       </CFormGroup>
                       <hr></hr>
                       <CFormGroup row>
-                        <CCol style={{ color: "#25a843" }}>
-                          <i className="cil-money "></i> {post.salary}
+                        <CCol
+                          className="flex"
+                          style={{ color: "#25a843", alignItems: "center" }}
+                        >
+                          <i className="cil-money mr-2"></i> {post.salary}
                         </CCol>
                       </CFormGroup>
                       <CFormGroup row>
@@ -192,13 +207,16 @@ function DetailPost() {
                       </CFormGroup>
                       <hr></hr>
                       <CFormGroup row>
-                        <CCol style={{ color: "#1b50d6" }}>
-                          <i className="cil-clock"></i> {post.endTime}
+                        <CCol
+                          className="flex"
+                          style={{ color: "red", alignItems: "center" }}
+                        >
+                          <i className="cil-clock mr-2"></i> {post.endTime}
                         </CCol>
                       </CFormGroup>
                       <CFormGroup row>
                         <CCol>
-                          <CLabel className="label">Descriptions</CLabel>
+                          <CLabel className="label">Description</CLabel>
                         </CCol>
                       </CFormGroup>
                       <hr></hr>
@@ -207,10 +225,6 @@ function DetailPost() {
                           <pre>{post.description}</pre>
                         </CCol>
                       </CFormGroup>
-                      <CFormGroup
-                        row
-                        style={{ background: "#5B9CD6", height: "30px" }}
-                      ></CFormGroup>
                     </CContainer>
                   </CForm>
                 </div>
@@ -222,12 +236,12 @@ function DetailPost() {
       ) : (
         <CRow style={{ alignItems: "center", textAlign: "center" }}>
           <CCol xs="12" className="mb-4">
-          <CCard className="no-cv">
-            <CCardBody className="content">
-              <div> Post Not Found 404!</div>
-            </CCardBody>
-          </CCard>
-        </CCol>
+            <CCard className="no-cv">
+              <CCardBody className="content">
+                <div> Post Not Found 404!</div>
+              </CCardBody>
+            </CCard>
+          </CCol>
         </CRow>
       )}
     </StyledCV>

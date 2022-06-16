@@ -22,7 +22,8 @@ import {
   CCardBody,
   CInvalidFeedback,
 } from "@coreui/react";
-
+import { css } from "@emotion/react";
+import BeatLoader from "react-spinners/BeatLoader";
 import { toast } from "react-toastify";
 import { getITerCV } from "src/redux/actions/getITerCV";
 import { createCV } from "src/redux/actions/createCV";
@@ -37,18 +38,16 @@ const StyledCV = styled.div`
   .layout-cv {
     .cv-header {
       align-items: center;
-      background: #d9d2c5;
-      padding: 20px 0px;
-      margin-bottom: 20px;
+      background: lavenderblush;
+      padding: 15px;
     }
     .cv-header-info {
-      padding: 10px 100px;
       line-height: 30px;
       color: #73706c;
     }
     .label {
       font-weight: bold;
-      font-size: 30px;
+      font-size: 20px;
       margin-top: 10px;
     }
     .ul-list {
@@ -120,6 +119,7 @@ const CV = () => {
   const [selected, setSelected] = useState([]);
 
   const handleChange = (event) => {
+    console.log(event.target.name + "=" + event.target.value);
     if (event.target.name === "birthday") {
       const date = new Date(event.target.value);
       setForm({
@@ -137,15 +137,14 @@ const CV = () => {
   };
 
   const handleSubmit = (event) => {
-    console.log("create cv");
     event.preventDefault();
 
     form.skill = [];
+    form.image = image || "";
     selected.map((item) => form.skill.push(item.value));
 
     const cv = {
       ...form,
-      image,
     };
 
     let isValid = true;
@@ -191,10 +190,9 @@ const CV = () => {
     const formData = new FormData();
     // Update the formData object
     formData.append("file", file, file.name);
-
     axios
       .post(
-        `https://api.cloudinary.com/v1_1/do-an-cnpm/image/upload?api_key=484176915684615&timestamp=${object.timestamp}&signature=${object.signature}`,
+        `https://api.cloudinary.com/v1_1/articlesgroup/image/upload?api_key=567228543314488&timestamp=${object.timestamp}&signature=${object.signature}`,
         formData,
         {
           headers: {
@@ -236,13 +234,13 @@ const CV = () => {
     event.preventDefault();
 
     form.skill = [];
+    form.image = image || "";
     if (selected) {
       selected.map((item) => form.skill.push(item.value));
     }
 
     const cv = {
       ...form,
-      image,
     };
     let isValid = true;
     for (var key in cv) {
@@ -272,16 +270,24 @@ const CV = () => {
       });
     }
   };
+
+  const overrideLoadingCSS = css`
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+  `;
+
   return (
     <LoadingOverlay
       active={loading || loadingUpdate || loadingCreate}
-      spinner
-      text="Loading..."
-      style={{
-        position: "fixed",
-        width: "100%",
-        height: "100%",
-        zIndex: "9999",
+      spinner={
+        <BeatLoader css={overrideLoadingCSS} color="rgb(77, 166, 255)" />
+      }
+      styles={{
+        overlay: (base) => ({
+          ...base,
+          background: "rgb(172 165 165 / 50%)",
+        }),
       }}
     >
       <StyledCV>
@@ -289,82 +295,116 @@ const CV = () => {
           <CRow className="mt-4" style={{ alignItems: "center" }}>
             <CCol md="2"></CCol>
             <CCol xs="12" className="mb-4" md="8">
-              <CCard>
-                <CCardBody>
+              <CCard style={{ border: 0 }}>
+                <CCardBody style={{ padding: 0 }}>
                   <div className="layout-cv">
                     <CForm action="" method="" className="form-horizontal">
-                      <CRow xs="12" md="12" className="cv-header">
-                        <CCol md="3">
-                          <img
-                            src={cv.image}
-                            alt="avatar"
-                            width=" 200px"
-                            height="200px"
-                            style={{ borderRadius: "50%" }}
-                          ></img>
+                      <CRow style={{ margin: 0 }}>
+                        <CCol xs="5" md="5" className="cv-header">
+                          <div
+                            style={{
+                              display: "flex",
+                              justifyContent: "center",
+                              alignItems: "center",
+                            }}
+                          >
+                            <img
+                              src={cv.image}
+                              alt="avatar"
+                              width=" 200px"
+                              height="200px"
+                              style={{ borderRadius: "50%" }}
+                            ></img>
+                          </div>
+                          <div
+                            style={{
+                              fontSize: "40px",
+                              textAlign: "center",
+                              marginTop: "10px",
+                            }}
+                          >
+                            {cv.name}
+                          </div>
+                          <div style={{ display: "flex", marginTop: "30px" }}>
+                            <i class="cil-birthday-cake"></i>
+                            <div style={{ marginLeft: "15px" }}>
+                              {cv.birthday}
+                            </div>
+                          </div>
+                          <div style={{ display: "flex", marginTop: "20px" }}>
+                            <i class="cil-envelope-closed"></i>
+                            <div style={{ marginLeft: "15px" }}>{cv.email}</div>
+                          </div>
                         </CCol>
-                        <CCol md="9" className="cv-header-info">
-                          <div style={{ fontSize: "50px" }}>{cv.name}</div>
-                          <br></br>
-                          Birthday:
-                          <div>{cv.birthday}</div>
-                          <CLabel htmlFor="date-input">Email:</CLabel>
-                          <div>{cv.email}</div>
+                        <CCol xs="7" md="7" className="">
+                          <CFormGroup row style={{ marginBottom: "0px" }}>
+                            <CCol
+                              style={{ background: "#3c4b64", color: "white" }}
+                            >
+                              <CLabel className="label">Experiences</CLabel>
+                            </CCol>
+                          </CFormGroup>
+                          <CFormGroup
+                            row
+                            style={{ minHeight: "100px", marginBottom: 0 }}
+                          >
+                            <CCol style={{ background: "#fef0f05c" }}>
+                              <pre>{cv.experience}</pre>
+                            </CCol>
+                          </CFormGroup>
+                          <CFormGroup row style={{ marginBottom: "0px" }}>
+                            <CCol
+                              style={{ background: "#3c4b64", color: "white" }}
+                            >
+                              <CLabel className="label">
+                                Technical Skills
+                              </CLabel>
+                            </CCol>
+                          </CFormGroup>
+                          <CFormGroup
+                            row
+                            style={{ minHeight: "100px", marginBottom: 0 }}
+                          >
+                            <CCol style={{ background: "#fef0f05c" }}>
+                              <ul className="ul-list">
+                                {cv.skill.map((item) => (
+                                  <li>{item}</li>
+                                ))}
+                              </ul>
+                            </CCol>
+                          </CFormGroup>
+                          <CFormGroup row style={{ marginBottom: "0px" }}>
+                            <CCol
+                              style={{ background: "#3c4b64", color: "white" }}
+                            >
+                              <CLabel className="label">Soft Skills</CLabel>
+                            </CCol>
+                          </CFormGroup>
+                          <CFormGroup
+                            row
+                            style={{ minHeight: "100px", marginBottom: "0px" }}
+                          >
+                            <CCol style={{ background: "#fef0f05c" }}>
+                              <pre>{cv.softSkill}</pre>
+                            </CCol>
+                          </CFormGroup>
+                          <CFormGroup row style={{ marginBottom: "0px" }}>
+                            <CCol
+                              style={{ background: "#3c4b64", color: "white" }}
+                            >
+                              <CLabel className="label">Descriptions</CLabel>
+                            </CCol>
+                          </CFormGroup>
+                          <CFormGroup
+                            row
+                            style={{ minHeight: "100px", marginBottom: "0px" }}
+                          >
+                            <CCol style={{ background: "#fef0f05c" }}>
+                              <pre>{cv.description}</pre>
+                            </CCol>
+                          </CFormGroup>
                         </CCol>
                       </CRow>
-
-                      <CFormGroup row>
-                        <CCol>
-                          <CLabel className="label">Experiences</CLabel>
-                        </CCol>
-                      </CFormGroup>
-                      <hr></hr>
-                      <CFormGroup row>
-                        <CCol>
-                          <pre>{cv.experience}</pre>
-                        </CCol>
-                      </CFormGroup>
-                      <CFormGroup row>
-                        <CCol>
-                          <CLabel className="label">Technical Skills</CLabel>
-                        </CCol>
-                      </CFormGroup>
-                      <hr></hr>
-                      <CFormGroup row>
-                        <CCol>
-                          <ul className="ul-list">
-                            {cv.skill.map((item) => (
-                              <li>{item}</li>
-                            ))}
-                          </ul>
-                        </CCol>
-                      </CFormGroup>
-                      <CFormGroup row>
-                        <CCol>
-                          <CLabel className="label">Soft Skills</CLabel>
-                        </CCol>
-                      </CFormGroup>
-                      <hr></hr>
-                      <CFormGroup row>
-                        <CCol>
-                          <pre>{cv.softSkill}</pre>
-                        </CCol>
-                      </CFormGroup>
-                      <CFormGroup row>
-                        <CCol>
-                          <CLabel className="label">Descriptions</CLabel>
-                        </CCol>
-                        <hr></hr>
-                      </CFormGroup>
-                      <CFormGroup row>
-                        <CCol>
-                          <pre>{cv.description}</pre>
-                        </CCol>
-                      </CFormGroup>
-                      <CFormGroup
-                        row
-                        style={{ background: "#D9D2C5", height: "30px" }}
-                      ></CFormGroup>
                     </CForm>
                   </div>
                 </CCardBody>
@@ -393,21 +433,17 @@ const CV = () => {
             <CCol xs="12" className="mb-4">
               <CCard className="no-cv">
                 <CCardBody className="content">
-                  <div style={{ color: "#ed4444" }}>YOUR CV IS MISSING!</div>
-                  <div>
-                    Create a CV to apply for jobs faster and get attractive
-                    invitation from employers!
-                  </div>
+                  <div>Create your CV to apply for jobs!</div>
                   <br></br>
-                  <CButton 
+                  <CButton
                     style={{
                       backgroundColor: "#4da6ff",
-                      color: "white"
+                      color: "white",
                     }}
                     disabled={loading}
                     onClick={() => setOpen(!isOpen)}
                   >
-                    Create Now !
+                    Create CV
                   </CButton>{" "}
                 </CCardBody>
               </CCard>
@@ -415,9 +451,9 @@ const CV = () => {
           </CRow>
         )}
 
-        <CModal show={isOpen} onClose={() => setOpen(!isOpen)} color="primary">
-          <CModalHeader closeButton style={{backgroundColor: "#4da6ff" }} >
-            <CModalTitle >Your CV</CModalTitle>
+        <CModal show={isOpen} onClose={() => setOpen(!isOpen)}>
+          <CModalHeader closeButton>
+            <CModalTitle>Your CV</CModalTitle>
           </CModalHeader>
           <CModalBody>
             <CForm
@@ -499,7 +535,11 @@ const CV = () => {
               <CRow xs="12" md="12" className="mb-2">
                 <CCol md="4" style={{ textAlign: "center" }}>
                   <CButton
-                    style={{ textAlign: "center", backgroundColor: "#4da6ff"}}
+                    style={{
+                      textAlign: "center",
+                      backgroundColor: "#4da6ff",
+                      border: "0",
+                    }}
                     color="primary"
                     onClick={handleClick}
                   >
@@ -577,7 +617,11 @@ const CV = () => {
             </CForm>
           </CModalBody>
           <CModalFooter>
-            <CButton color="success" onClick={handleSubmit} style={{backgroundColor: "#4da6ff"}}>
+            <CButton
+              color="success"
+              onClick={handleSubmit}
+              style={{ backgroundColor: "#4da6ff" }}
+            >
               Create
             </CButton>{" "}
             <CButton
@@ -637,7 +681,7 @@ const CV = () => {
                 <CCol md="8">
                   <CFormGroup row>
                     <CCol md="3">
-                      <CLabel>Name</CLabel>
+                      <CLabel>Full Name</CLabel>
                     </CCol>
                     <CCol xs="12" md="9">
                       <CInput
@@ -648,7 +692,7 @@ const CV = () => {
                       />
                     </CCol>
                     <CInvalidFeedback className="help-block">
-                      Enter a name
+                      Enter your name
                     </CInvalidFeedback>
                   </CFormGroup>
                   <CFormGroup row>
@@ -681,7 +725,7 @@ const CV = () => {
                         required
                       />
                       <CInvalidFeedback className="help-block">
-                        Enter an email
+                        Enter your email
                       </CInvalidFeedback>
                     </CCol>
                   </CFormGroup>
@@ -690,8 +734,11 @@ const CV = () => {
               <CRow xs="12" md="12" className="mb-2">
                 <CCol md="4" style={{ textAlign: "center" }}>
                   <CButton
-                    style={{ textAlign: "center" }}
-                    color="primary"
+                    style={{
+                      textAlign: "center",
+                      backgroundColor: "#4da6ff",
+                      color: "white",
+                    }}
                     onClick={handleClick}
                   >
                     Choose image
@@ -768,7 +815,13 @@ const CV = () => {
             </CForm>
           </CModalBody>
           <CModalFooter>
-            <CButton color="success" onClick={handleUpdate}>
+            <CButton
+              style={{
+                backgroundColor: "#4da6ff",
+                color: "white",
+              }}
+              onClick={handleUpdate}
+            >
               Update
             </CButton>{" "}
             <CButton

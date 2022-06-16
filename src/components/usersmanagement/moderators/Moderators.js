@@ -82,14 +82,25 @@ const Moderators = () => {
     event.preventDefault();
 
     const mod = {
-      userName,
+      username: userName,
       password,
     };
     let isValid = true;
 
-    if (userName === "" || password === "" || password !== confirmPassword) {
+    if (
+      userName === "" ||
+      password === "" ||
+      password.length < 6 ||
+      password !== confirmPassword
+    ) {
+      if (password.length < 6) {
+        toast.error("Please enter password at least 6 characters !", {
+          position: toast.POSITION.BOTTOM_LEFT,
+        });
+      }
       isValid = false;
     }
+
     if (isValid) {
       addMod(mod, (data) => {
         if (data.status === 200) {
@@ -113,7 +124,7 @@ const Moderators = () => {
         toast.error("Make sure that you don't leave any input empty !", {
           position: toast.POSITION.BOTTOM_LEFT,
         });
-      } else {
+      } else if (password !== confirmPassword) {
         toast.error("Please make sure your passwords match!", {
           position: toast.POSITION.BOTTOM_LEFT,
         });
@@ -130,7 +141,11 @@ const Moderators = () => {
               <CCardHeader>
                 MODERATORS
                 <CButton
-                  style={{ float: "right" }}
+                  style={{
+                    float: "right",
+                    backgroundColor: "#4da6ff",
+                    borderColor: "#4da6ff",
+                  }}
                   color="primary"
                   className="mr-1 right-btn"
                   onClick={() => setPrimary(!primary)}
@@ -142,8 +157,12 @@ const Moderators = () => {
                   show={primary}
                   onClose={() => setPrimary(!primary)}
                   color="primary"
+                  style={{ borderColor: "#4da6ff" }}
                 >
-                  <CModalHeader closeButton>
+                  <CModalHeader
+                    style={{ backgroundColor: "#4da6ff" }}
+                    closeButton
+                  >
                     <CModalTitle>New moderator</CModalTitle>
                   </CModalHeader>
                   <CModalBody
@@ -237,14 +256,17 @@ const Moderators = () => {
                   </CModalBody>
                   <CModalFooter>
                     <CButton
-                      color="primary"
                       disabled={!userName || !password || !confirmPassword}
                       onClick={handleSubmit}
+                      style={{
+                        backgroundColor: "#4da6ff",
+                        borderColor: "#4da6ff",
+                      }}
                     >
                       Create
                     </CButton>{" "}
                     <CButton
-                      color="secondary"
+                      color="danger"
                       onClick={() => {
                         setPrimary(!primary);
                         setUserName("");
@@ -263,7 +285,7 @@ const Moderators = () => {
                   items={moderators}
                   fields={[
                     { key: "_id", _classes: "font-weight-bold" },
-                    "userName",
+                    "username",
                     "createdAt",
                     "Actions",
                   ]}
@@ -315,7 +337,7 @@ const Moderators = () => {
                               });
                             }}
                           >
-                            <i className="cil-trash"></i>
+                            <i className="cil-x"></i>
                           </CButton>
                         </CTooltip>{" "}
                         <CTooltip
@@ -326,7 +348,7 @@ const Moderators = () => {
                             color="success"
                             onClick={() =>
                               history.push(
-                                `/usersmanagement/${role}/${item._id}/${item.userName}`
+                                `/usersmanagement/${role}/${item._id}/${item.username}`
                               )
                             }
                           >

@@ -117,7 +117,7 @@ const Companies = () => {
                               });
                             }}
                           >
-                            <i className="cil-trash"></i>
+                            <i className="cil-x"></i>
                           </CButton>
                         </CTooltip>{" "}
                         <CTooltip

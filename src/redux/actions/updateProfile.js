@@ -5,6 +5,7 @@ export function updateProfile(data, resolve = () => {}) {
   store.dispatch({
     type: types.UPDATE_PROFILE,
   });
+
   return fetch(`${process.env.REACT_APP_API_URL}/auth/profile`, {
     method: "PATCH",
     headers: {
@@ -13,7 +14,7 @@ export function updateProfile(data, resolve = () => {}) {
       Authorization: "Bearer " + getAuth().token,
       // "Access-Control-Allow-Origin": "*"
     },
-    body: JSON.stringify(data)
+    body: JSON.stringify(data),
   })
     .then((response) => response.json())
     .then((data) => {

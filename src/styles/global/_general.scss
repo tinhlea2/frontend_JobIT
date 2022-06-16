@@ -129,11 +129,13 @@ a {
   flex-direction: column;
   justify-items: center;
   text-align: center;
+  margin-right: 20px;
 
   .member-img {
     width: 150px;
     height: 150px;
     border-radius: 100%;
+    object-fit: cover;
   }
 }
 .ewslVP.ewslVP {
@@ -243,4 +245,15 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.modal-content {
+  border: 0;
+}
+
+.modal-header {
+  .close {
+    color: white;
+    opacity: 1;
+  }
 }

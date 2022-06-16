@@ -5,6 +5,7 @@ export function analyzePost(year, resolve = () => {}) {
   store.dispatch({
     type: types.ANALYZE_POST,
   });
+
   return fetch(`${process.env.REACT_APP_API_URL}/analysis/post?year=${year}`, {
     method: "GET",
     headers: {

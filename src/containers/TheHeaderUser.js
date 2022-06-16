@@ -14,7 +14,6 @@ import logo from "../assets/images/logo.png";
 
 import { TheHeaderDropdown } from "./index";
 import { useSelector } from "react-redux";
-
 const TheHeaderUser = () => {
   const storeSetInfo = useSelector((store) => store.setInfo);
 
@@ -28,7 +27,7 @@ const TheHeaderUser = () => {
         </CHeaderNavItem>
         <CHeaderNavItem className="header__inner__menu">
           <CLink activeClassName="--active" to="/post-management">
-            POSTS MANAGEMENT
+            Hiring Posts
           </CLink>
         </CHeaderNavItem>
         <CHeaderNavItem className="header__inner__menu">
@@ -37,12 +36,12 @@ const TheHeaderUser = () => {
             className="header__inner__menu__middle"
             to="/it-companies"
           >
-            COMPANIES
+            Companies
           </CLink>
         </CHeaderNavItem>
         <CHeaderNavItem className="header__inner__menu">
           <CLink activeClassName="--active" to="/about-us">
-            ABOUT US
+            About our team
           </CLink>
         </CHeaderNavItem>
       </CHeaderNav>
@@ -69,7 +68,7 @@ const TheHeaderUser = () => {
         </CHeaderNavItem>
         <CHeaderNavItem className="header__inner__menu">
           <CLink activeClassName="--active" exact to="/">
-            ALL JOBS
+            Hiring Jobs
           </CLink>
         </CHeaderNavItem>
         <CHeaderNavItem className="header__inner__menu">
@@ -78,12 +77,12 @@ const TheHeaderUser = () => {
             className="header__inner__menu__middle"
             to="/it-companies"
           >
-            COMPANIES
+            Companies
           </CLink>
         </CHeaderNavItem>
         <CHeaderNavItem className="header__inner__menu">
           <CLink activeClassName="--active" to="/about-us">
-            ABOUT US
+            About our team
           </CLink>
         </CHeaderNavItem>
       </CHeaderNav>
@@ -94,17 +93,16 @@ const TheHeaderUser = () => {
         </CHeaderNav>
       ) : (
         <CHeaderNav className="px-3">
-          <Link to="/login">
-            <CButton className="px-4 btn--primary">
-              LOGIN
-            </CButton>
+          <Link to="/login" style={{ marginRight: "30px", color: "skyblue" }}>
+            Login
           </Link>
+
           {/* <Link to="/register" style={{marginRight:"30px"}}>
             
               Register
            
           </Link> */}
-{/* 
+          {/* 
           <Link to="/register-company" style={{marginRight:"40px"}}>
             
           Register for recruitment

@@ -3,7 +3,8 @@ import { useSelector } from "react-redux";
 import { getPosts } from "src/redux/actions/getPosts";
 import LoadingOverlay from "react-loading-overlay";
 import _ from "lodash";
-
+import { css } from "@emotion/react";
+import BeatLoader from "react-spinners/BeatLoader";
 import {
   CRow,
   CCol,
@@ -64,16 +65,24 @@ const HomePage = () => {
   const search = () => {
     setQuery(searchInput);
   };
+
+  const overrideLoadingCSS = css`
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+  `;
+
   return (
     <LoadingOverlay
       active={loadingList}
-      spinner
-      text="Loading..."
-      style={{
-        position: "fixed",
-        width: "100%",
-        height: "100%",
-        zIndex: "9999",
+      spinner={
+        <BeatLoader css={overrideLoadingCSS} color="rgb(77, 166, 255)" />
+      }
+      styles={{
+        overlay: (base) => ({
+          ...base,
+          background: "rgb(172 165 165 / 50%)",
+        }),
       }}
     >
       <CContainer>
@@ -133,16 +142,16 @@ const HomePage = () => {
                   compId={item.companyId}
                   description={item.description}
                   isApplied={item.apply.some(
-                    (i) => i.iterId === getAuth().userId
+                    (i) => i.iterId === getAuth()?.user?.userId
                   )}
                 />
               );
             })}
           {!posts.length && (
             <CCard className="no-result">
-              {" "}
-              <img src={notfound} alt=""></img>
-              <div>Sorry, we couldn't find any results for your search! </div>
+              <i class="cil-rain" style={{ fontSize: "24px" }}></i>
+              {/* <img src={notfound} alt=""></img> */}
+              <div>We couldn't find any results for your searching! </div>
             </CCard>
           )}
         </div>

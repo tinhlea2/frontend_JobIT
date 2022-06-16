@@ -84,58 +84,7 @@ const GroupPermission = ({ role }) => {
 
   return (
     <StyledTabs>
-      {/* <table className="table table-striped table-hover">
-        <thead>
-          <tr>
-            <th>PERMISSIONS</th>
-            <th>OPTIONS</th>
-          </tr>
-        </thead>
-        <tbody>
-          {permissions &&
-            permissions.map((permission) => {
-              return (
-                <tr key={permission._id}>
-                  <td>{permission.perName}</td>
-                  <td>
-                    <CFormGroup variant="custom-radio" inline>
-                      <CInputRadio
-                        custom
-                        id={permission._id + "y"}
-                        name={permission._id + "name"}
-                        value={permission._id + "y"}
-                        defaultChecked={permission.check}
-                        onChange={changePermissions}
-                      />
-                      <CLabel
-                        variant="custom-checkbox"
-                        htmlFor={permission._id + "y"}
-                      >
-                        Yes
-                      </CLabel>
-                    </CFormGroup>
-                    <CFormGroup variant="custom-radio" inline>
-                      <CInputRadio
-                        custom
-                        id={permission._id + "n"}
-                        name={permission._id + "name"}
-                        value={permission._id + "n"}
-                        defaultChecked={!permission.check}
-                        onChange={changePermissions}
-                      />
-                      <CLabel
-                        variant="custom-checkbox"
-                        htmlFor={permission._id + "n"}
-                      >
-                        No
-                      </CLabel>
-                    </CFormGroup>
-                  </td>
-                </tr>
-              );
-            })}
-        </tbody>
-      </table> */}
+      {}
       <CDataTable
         items={permissions}
         fields={["PERMISSIONS", "OPTIONS"]}
@@ -144,7 +93,7 @@ const GroupPermission = ({ role }) => {
         striped
         itemsPerPage={permissions.length}
         scopedSlots={{
-          PERMISSIONS: (item) => <td>{item.perName}</td>,
+          PERMISSIONS: (item) => <td>{item.permisionName}</td>,
           OPTIONS: (permission) => (
             <td>
               <CFormGroup variant="custom-radio" inline>
