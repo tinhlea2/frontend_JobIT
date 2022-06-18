@@ -62,13 +62,13 @@ const ApprovedPost = () => {
           <CCardBody>
             <CDataTable
               items={posts}
-              fields={["_id", "title", "Actions", "ListApplications"]}
+              fields={["_id", "title", "Action", "ApplicationList"]}
               hover
               loading={loadingPost || loadingDel || loadingComplete}
               striped
               itemsPerPage={posts.length}
               scopedSlots={{
-                Actions: (item) => (
+                Action: (item) => (
                   <td>
                     <CTooltip
                       content="complete this post"
@@ -147,7 +147,7 @@ const ApprovedPost = () => {
                     </CTooltip>
                   </td>
                 ),
-                ListApplications: (item) => (
+                ApplicationList: (item) => (
                   <td>
                     <CLink
                       to={`/post/appliers/${item._id}`}
@@ -155,7 +155,7 @@ const ApprovedPost = () => {
                     >
                       <span className="text--primary text--underline">
                         {" "}
-                        Details{" "}
+                        Detail{" "}
                       </span>
                     </CLink>
                   </td>

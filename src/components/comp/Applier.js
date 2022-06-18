@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { css } from "@emotion/react";
-import BeatLoader from "react-spinners/BeatLoader";
+
 import {
   CCard,
   CCardBody,
@@ -17,14 +16,18 @@ import {
   CLabel,
   CModalFooter,
   CTooltip,
+  CBadge,
+  CInputRadio,
 } from "@coreui/react";
-
+import { useHistory, useParams } from "react-router-dom";
 import { getAppliers } from "../../redux/actions/getAppliers";
 import { getCV } from "../../redux/actions/getCV";
 import styled from "styled-components";
 import { toast } from "react-toastify";
 import { useSelector } from "react-redux";
 import LoadingOverlay from "react-loading-overlay";
+import _ from "lodash";
+import { response } from "src/redux/actions/response";
 
 const StyledCV = styled.div`
   .layout-cv {
@@ -38,7 +41,6 @@ const StyledCV = styled.div`
       color: white;
       line-height: 30px;
     }
-
     .label {
       font-weight: bold;
       font-size: 30px;
@@ -58,26 +60,34 @@ const StyledCV = styled.div`
 `;
 const Applier = ({ match }) => {
   const [appliers, setAppliers] = useState([]);
+  const [statusList, setStatusList] = useState([]);
   const [cv, setCV] = useState({ skill: [] });
   const [title, setTitle] = useState("");
   const [isOpen, setOpen] = useState(false);
   const loading = useSelector((store) => store.getAppliers.loading);
   const loadingCV = useSelector((store) => store.getCV.loading);
 
-  const id = match.params.id;
+  const loadingResponse = useSelector((store) => store.response.loading);
 
+  const id = match.params.id;
+  const [success, setSuccess] = useState(0);
+  const history = useHistory();
   useEffect(() => {
     getAppliers(id, (result) => {
       if (result.applies.length > 0) {
         setAppliers(result.applies);
         setTitle(result.title);
+        setStatusList(
+          result.applies.map((item) => ({
+            iterId: item.iterId,
+            status: item.status,
+          }))
+        );
       }
     });
-  }, [id]);
+  }, [id, success]);
 
   const handleGetCV = (cvId) => {
-    console.log("get CV");
-
     getCV(cvId, (data) => {
       if (data.status === 200) {
         setOpen(!isOpen);
@@ -91,27 +101,78 @@ const Applier = ({ match }) => {
   };
   const softSkill = cv.softSkill ? cv.softSkill.split(",") : [];
 
-  const overrideLoadingCSS = css`
-    display: block;
-    margin: 0 auto;
-    border-color: red;
-  `;
+  const isResponse = () => {
+    return (
+      statusList.findIndex(
+        (item) => item.status === "agreed" || item.status === "rejected"
+      ) + 1
+    );
+  };
 
+  const changePermissions = (event) => {
+    const id = event.target.value.slice(0, -1);
+
+    const value = event.target.value.slice(-1);
+    const checkedValue = value === "n" ? "reject" : "agree";
+
+    const tmp = statusList.map((item) => ({
+      ...item,
+      status: item.iterId === id ? checkedValue : item.status,
+    }));
+
+    setStatusList(tmp);
+  };
+
+  const data = {
+    listResponse: statusList,
+  };
+
+  const updateUserPermissionsHandler = (event) => {
+    event.preventDefault();
+
+    response(id, data, (data) => {
+      if (data.status === 200) {
+        setSuccess(success + 1);
+        toast.success("Response successfully !", {
+          position: toast.POSITION.BOTTOM_LEFT,
+        });
+      } else {
+        toast.error("Fail to Response! " + data.msg, {
+          position: toast.POSITION.BOTTOM_LEFT,
+        });
+      }
+    });
+  };
+
+  const cancelUpdatedPermissionsHandler = () => {
+    setSuccess(success + 1);
+  };
   return (
     <LoadingOverlay
       active={loading || loadingCV}
-      spinner={
-        <BeatLoader css={overrideLoadingCSS} color="rgb(77, 166, 255)" />
-      }
-      styles={{
-        overlay: (base) => ({
-          ...base,
-          background: "rgb(172 165 165 / 50%)",
-        }),
+      spinner
+      text="Loading..."
+      style={{
+        position: "fixed",
+        width: "100%",
+        height: "100%",
+        zIndex: "9999",
       }}
     >
       <CRow>
         <CCol>
+          <div
+            className="flex align-item mt-3"
+            style={{
+              fontSize: "20px",
+              fontWeight: 500,
+              cursor: "pointer",
+            }}
+            onClick={() => history.goBack()}
+          >
+            <i class="cil-arrow-left mr-2"></i>
+            Back
+          </div>
           <CCard className="card-content">
             <CCardHeader>
               <p>Post ID: {match.params.id}</p>
@@ -119,20 +180,24 @@ const Applier = ({ match }) => {
               <span>Post title: {title}</span>
             </CCardHeader>
             <CCardBody>
-              {appliers && appliers.length > 0 ? (
+              {appliers && statusList.length > 0 && appliers.length > 0 ? (
                 <div>
                   <table className="table table-striped table-hover">
                     <thead>
                       <tr>
+                        <th>No.</th>
                         <th>Full name</th>
                         <th>Email</th>
                         <th>Applied Date</th>
                         <th>CV</th>
+                        <th>Status</th>
+                        <th>Actions</th>
                       </tr>
                     </thead>
                     <tbody>
                       {appliers &&
-                        appliers.map((applier) => {
+                        statusList &&
+                        appliers.map((applier, index) => {
                           let date = new Date(applier.timeApply);
                           let dd = String(date.getDate()).padStart(2, "0");
                           let mm = String(date.getMonth() + 1).padStart(2, "0");
@@ -140,6 +205,7 @@ const Applier = ({ match }) => {
                           let day = dd + "/" + mm + "/" + yyyy;
                           return (
                             <tr key={applier._id}>
+                              <td>{index + 1}</td>
                               <td>{applier.name}</td>
                               <td>{applier.email}</td>
                               <td>{day}</td>
@@ -148,15 +214,96 @@ const Applier = ({ match }) => {
                                   content="view CV"
                                   placement="bottom-start"
                                 >
-                                  <CButton
+                                  <CBadge
+                                    style={{
+                                      padding: "8px 10px 6px",
+                                      letterSpacing: 2,
+                                      cursor: "pointer",
+                                    }}
                                     color="success"
                                     onClick={() => {
                                       handleGetCV(applier.cvId);
                                     }}
                                   >
-                                    <i className="cil-description"></i>
-                                  </CButton>
+                                    <i
+                                      className="cil-description"
+                                      style={{
+                                        fontSize: 16,
+                                      }}
+                                    ></i>
+                                  </CBadge>
                                 </CTooltip>
+                              </td>
+                              <td>
+                                <CBadge
+                                  style={{
+                                    padding: "6px 12px 4px",
+                                    letterSpacing: 2,
+                                    borderRadius: 16,
+                                  }}
+                                  color={
+                                    _.get(applier, "status") === "pending"
+                                      ? "info"
+                                      : "warning"
+                                  }
+                                >
+                                  {_.get(applier, "status") === "pending"
+                                    ? "PENDING"
+                                    : "RESPONDED"}
+                                </CBadge>
+                              </td>
+                              <td>
+                                {
+                                  <>
+                                    <CFormGroup variant="custom-radio" inline>
+                                      <CInputRadio
+                                        custom
+                                        id={applier.iterId + "y"}
+                                        name={applier.iterId + "name"}
+                                        value={applier.iterId + "y"}
+                                        defaultChecked={
+                                          statusList[index].status === "agreed"
+                                        }
+                                        onChange={changePermissions}
+                                        disabled={
+                                          statusList[index].status ===
+                                            "rejected" ||
+                                          statusList[index].status === "agreed"
+                                        }
+                                      />
+                                      <CLabel
+                                        variant="custom-checkbox"
+                                        htmlFor={applier.iterId + "y"}
+                                      >
+                                        Accept
+                                      </CLabel>
+                                    </CFormGroup>
+                                    <CFormGroup variant="custom-radio" inline>
+                                      <CInputRadio
+                                        custom
+                                        id={applier.iterId + "n"}
+                                        name={applier.iterId + "name"}
+                                        value={applier.iterId + "n"}
+                                        defaultChecked={
+                                          statusList[index].status ===
+                                          "rejected"
+                                        }
+                                        onChange={changePermissions}
+                                        disabled={
+                                          statusList[index].status ===
+                                            "rejected" ||
+                                          statusList[index].status === "agreed"
+                                        }
+                                      />
+                                      <CLabel
+                                        variant="custom-checkbox"
+                                        htmlFor={applier.iterId + "n"}
+                                      >
+                                        Deny
+                                      </CLabel>
+                                    </CFormGroup>
+                                  </>
+                                }
                               </td>
                             </tr>
                           );
@@ -275,6 +422,24 @@ const Applier = ({ match }) => {
                 </CModalFooter>
               </CModal>
             </CCardBody>
+            <div className="flex flex-end">
+              <CButton
+                color="primary"
+                className="mr-1 right-btn"
+                onClick={updateUserPermissionsHandler}
+                disabled={isResponse() || loadingResponse}
+              >
+                Save
+              </CButton>
+              <CButton
+                color="warning"
+                className="mr-1 right-btn"
+                onClick={cancelUpdatedPermissionsHandler}
+                disabled={isResponse()}
+              >
+                Cancel
+              </CButton>
+            </div>
           </CCard>
         </CCol>
       </CRow>

@@ -52,6 +52,7 @@ import updatePass from "./updatePass";
 import updatePost from "./updatePost";
 import completePost from "./completePost";
 import getAppliedJobs from "./getAppliedJobs";
+import response from "./response";
 
 export default combineReducers({
   loginAdmin,
@@ -106,4 +107,5 @@ export default combineReducers({
   updatePass,
   updatePost,
   completePost,
+  response,
 });
