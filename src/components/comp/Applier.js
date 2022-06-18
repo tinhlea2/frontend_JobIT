@@ -427,7 +427,6 @@ const Applier = ({ match }) => {
                 color="primary"
                 className="mr-1 right-btn"
                 onClick={updateUserPermissionsHandler}
-                disabled={isResponse() || loadingResponse}
               >
                 Save
               </CButton>
@@ -435,7 +434,6 @@ const Applier = ({ match }) => {
                 color="warning"
                 className="mr-1 right-btn"
                 onClick={cancelUpdatedPermissionsHandler}
-                disabled={isResponse()}
               >
                 Cancel
               </CButton>
