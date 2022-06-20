@@ -35,6 +35,7 @@ const ConfirmCode = () => {
       email: email,
       code: code,
     };
+    console.log(email);
     confirmCode(data, (data) => {
       if (data.status === 200) {
         toast.success("Enter code correctly !", {

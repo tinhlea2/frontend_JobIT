@@ -22,7 +22,7 @@ const ChangePassword = () => {
   const history = useHistory();
   const email = history.location.state && history.location.state.email;
   const code = history.location.state && history.location.state.code;
-
+  
   const [password, setPassword] = React.useState("");
   const [confirmPassword, setConfirmPassword] = React.useState("");
 
@@ -68,7 +68,7 @@ const ChangePassword = () => {
                   <p className="text-muted mb-3">
                     Please enter your new password!
                   </p>
-                  <CInputGroup className="mb-2">
+                  {/* <CInputGroup className="mb-2">
                     <CInputGroupPrepend>
                       <CInputGroupText>
                         <CIcon name="cil-lock-locked" />
@@ -81,7 +81,7 @@ const ChangePassword = () => {
                       value={password}
                       onChange={handleChange}
                     />
-                  </CInputGroup>
+                  </CInputGroup> */}
                   <CInputGroup className="mb-2">
                     <CInputGroupPrepend>
                       <CInputGroupText>
