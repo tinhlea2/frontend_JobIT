@@ -50,7 +50,12 @@ const PostComp = () => {
 
   useEffect(() => {
     getPostsComp((item) => {
-      setPost(item.posts);
+      if(item.status === 200){
+        return setPost(item.posts);
+      }
+      toast.error("Fail! " + item.msg, {
+        position: toast.POSITION.BOTTOM_LEFT,
+      });
     });
   }, []);
 

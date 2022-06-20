@@ -163,7 +163,7 @@ const CV = () => {
             position: toast.POSITION.BOTTOM_LEFT,
           });
         } else {
-          toast.error("Fail!", {
+          toast.error("Fail! " + data.msg, {
             position: toast.POSITION.BOTTOM_LEFT,
           });
         }
