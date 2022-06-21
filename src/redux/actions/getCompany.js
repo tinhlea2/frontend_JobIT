@@ -7,7 +7,7 @@ export function getCompany(page, query, resolve = () => {}) {
   });
 
   return fetch(
-    `${process.env.REACT_APP_API_URL}/companies/info?page=${page}&take=9&query=${query}`,
+    `${process.env.REACT_APP_API_URL}/companies/info?page=${page}&take=10&query=${query}`,
     {
       method: "GET",
       headers: {
