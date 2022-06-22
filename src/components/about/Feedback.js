@@ -35,7 +35,7 @@ function Feedback() {
           document.getElementById("feedback").reset();
           setContent("");
         } else {
-          toast.error("Fail!" + data.msg, {
+          toast.error("Fail! " + (data?.msg ?  data?.msg : 'Denied Permisstion'), {
             position: toast.POSITION.BOTTOM_LEFT,
           });
         }
