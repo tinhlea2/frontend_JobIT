@@ -29,7 +29,7 @@ const UserPermissions = ({ match }) => {
 
   useEffect(() => {
     listUserPermissions(match.params.id, (result) => {
-      setUserPermissions(result.permissions);
+      setUserPermissions(result.permissions.filter(item =>item?.permissionName !== undefined));
     });
   }, [match.params.id]);
 
