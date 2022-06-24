@@ -105,7 +105,7 @@ const ITerProfile = () => {
                       </CNavItem>
                     )}
                   </CNav>
-                  {getAuth().role === "iter" && (
+                  {/* {getAuth().role === "iter" && (
                     <>
                       <CLabel className="mr-2">Receive jobs information</CLabel>
                       <CSwitch
@@ -120,7 +120,7 @@ const ITerProfile = () => {
                         }
                       />
                     </>
-                  )}
+                  )} */}
                 </div>
 
                 <CTabContent>
