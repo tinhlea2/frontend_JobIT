@@ -29,6 +29,10 @@ const StyledComp = styled.section`
   .image {
     width: 110px;
     height: 110px;
+    img{
+      width: 110px;
+      height: 110px;
+    }
   }
   .info {
     margin: 0px 10px;
