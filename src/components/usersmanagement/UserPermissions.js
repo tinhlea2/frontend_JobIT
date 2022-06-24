@@ -15,8 +15,10 @@ import {
 import { listUserPermissions } from "../../redux/actions/listUserPermissions";
 import { updateUserPermissions } from "../../redux/actions/updateUserPermissions";
 import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 const UserPermissions = ({ match }) => {
+  const history  = useHistory()
   const [userPermissions, setUserPermissions] = useState([]);
 
   const storeList = useSelector((store) => store.listUserPermissions);
@@ -53,7 +55,7 @@ const UserPermissions = ({ match }) => {
   };
 
   const cancelUpdatedPermissionsHandler = () => {
-    window.location.reload();
+    history.back();
   };
 
   const changePermissions = (event) => {
@@ -135,13 +137,13 @@ const UserPermissions = ({ match }) => {
             >
               Save
             </CButton>
-            <CButton
+            {/* <CButton
               color="warning"
               className="mr-1 right-btn"
               onClick={cancelUpdatedPermissionsHandler}
             >
               Cancel
-            </CButton>
+            </CButton> */}
           </div>
         </CCard>
       </CCol>
