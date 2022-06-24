@@ -30,7 +30,7 @@ const StyledComp = styled.section`
     width: 110px;
     height: 110px;
     img{
-      width: 110px;
+      width: 110px !important;
       height: 110px;
     }
   }
